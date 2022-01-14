@@ -188,8 +188,48 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/14/2/" target="_self">
+          useState 引用类型数据更新不触发重新渲染问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/14/2/" target="_self">
+          
+          useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-14 10:24" pubdate>
+              2022-01-14
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HooK/">HooK</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/13/useRef/" target="_self">
+        <a href="/2022/01/13/1/" target="_self">
           <img src="/img/useRef.png" srcset="/img/loading.gif" lazyload alt="使用 useRef 跨生命周期保存变量">
         </a>
       </div>
@@ -197,13 +237,13 @@
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/13/useRef/" target="_self">
+        <a href="/2022/01/13/1/" target="_self">
           使用 useRef 跨生命周期保存变量
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/13/useRef/" target="_self">
+        <a href="/2022/01/13/1/" target="_self">
           
           ref 这一种访问 DOM 的主要方式。然而，useRef() 比 ref 属性更有用。它可以很方便地保存任何可变值，其类似于在 class 中使用实例字段的方式. 当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用回调 ref 来实现。 场景 1：只在
         </a>
@@ -231,6 +271,8 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/React/">React</a>
+            
+              <a href="/tags/HooK/">HooK</a>
             
           </div>
         
