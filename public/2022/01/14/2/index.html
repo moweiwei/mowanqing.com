@@ -16,16 +16,16 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="解决办法以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numbe">
+    <meta name="description" content="如何在 class 组件中使用 hooks解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在 class 组件中使用 hooks">
 <meta property="og:url" content="http://example.com/2022/01/14/2/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="解决办法以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numbe">
+<meta property="og:description" content="如何在 class 组件中使用 hooks解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function u">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/2022.01.14.2.png">
 <meta property="article:published_time" content="2022-01-14T03:03:28.000Z">
-<meta property="article:modified_time" content="2022-01-14T05:57:32.234Z">
+<meta property="article:modified_time" content="2022-01-23T15:51:20.012Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="HooK">
 <meta name="twitter:card" content="summary_large_image">
@@ -241,7 +241,8 @@
             <h1 style="display: none">如何在 class 组件中使用 hooks</h1>
             
             <div class="markdown-body">
-              <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>以一个简单的 <code>useScreenWidthhook</code> 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度：</p>
+              <h1 id="如何在-class-组件中使用-hooks"><a href="#如何在-class-组件中使用-hooks" class="headerlink" title="如何在 class 组件中使用 hooks"></a>如何在 class 组件中使用 hooks</h1><p>解决办法</p>
+<p>以一个简单的 <code>useScreenWidthhook</code> 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度：</p>
 <figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useScreenWidth</span>(<span class="hljs-params"></span>): <span class="hljs-title">number</span> </span>&#123;<br>  <span class="hljs-keyword">const</span> [width, setWidth] = useState(<span class="hljs-built_in">window</span>.innerWidth);<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> handler = <span class="hljs-function">(<span class="hljs-params">event: any</span>) =&gt;</span> &#123;<br>      setWidth(event.target.innerWidth);<br>    &#125;;<br>    <span class="hljs-comment">// 监听浏览器窗口变化</span><br>    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    <span class="hljs-comment">// 组件unmount时要解除监听</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    &#125;;<br>  &#125;, []);<br><br>  <span class="hljs-keyword">return</span> width;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="方法-1：将-Hook-包装成-HOC"><a href="#方法-1：将-Hook-包装成-HOC" class="headerlink" title="方法 1：将 Hook 包装成 HOC"></a>方法 1：将 Hook 包装成 HOC</h2><p>HOC 是 React 中复用组件的高级用法，它的本质是一个函数，它的输入参数是一个组件，返回相同的组件以及一些额外的 props。在我们的例子里，可以让 hook 函数作为 props 传递到目标组件中:</p>
@@ -310,6 +311,15 @@
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
             
           </article>
         </div>

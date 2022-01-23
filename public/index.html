@@ -190,6 +190,45 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/22/1/" target="_self">
+          <img src="/img/2022.01.22.1.jpeg" srcset="/img/loading.gif" lazyload alt="Vue3 学习笔记">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/22/1/" target="_self">
+          Vue3 学习笔记
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/22/1/" target="_self">
+          
+          Vue3 学习笔记Vue 和 React 数据驱动原理对比Vue1 解决方案是使用响应式，初始化的时候，watcher 监听数据的每个属性，数据发生变化的时候，就能够知道数据的哪个 key 变了，去修改对应的 DOM。 React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。 描述实际 D
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-22 10:46" pubdate>
+              2022-01-22
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/01/14/3/" target="_self">
           <img src="/img/2022.01.14.3.png" srcset="/img/loading.gif" lazyload alt="map 到底改不改变原数组">
         </a>
@@ -206,7 +245,7 @@
       <p class="index-excerpt">
         <a href="/2022/01/14/3/" target="_self">
           
-          map 到底改不改变原数组 一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;
+          map 到底改不改变原数组一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[
         </a>
       </p>
 
@@ -259,7 +298,7 @@
       <p class="index-excerpt">
         <a href="/2022/01/14/2/" target="_self">
           
-          解决办法以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numbe
+          如何在 class 组件中使用 hooks解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function u
         </a>
       </p>
 
@@ -312,7 +351,7 @@
       <p class="index-excerpt">
         <a href="/2022/01/14/1/" target="_self">
           
-          useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob
+          useState 引用类型数据更新不触发重新渲染问题useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState)
         </a>
       </p>
 
@@ -365,7 +404,7 @@
       <p class="index-excerpt">
         <a href="/2022/01/13/1/" target="_self">
           
-          ref 这一种访问 DOM 的主要方式。然而，useRef() 比 ref 属性更有用。它可以很方便地保存任何可变值，其类似于在 class 中使用实例字段的方式. 当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用回调 ref 来实现。 场景 1：只在
+          使用 useRef 跨生命周期保存变量ref 这一种访问 DOM 的主要方式。然而，useRef() 比 ref 属性更有用。它可以很方便地保存任何可变值，其类似于在 class 中使用实例字段的方式. 当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用
         </a>
       </p>
 
@@ -390,9 +429,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/React/">React</a>
-            
               <a href="/tags/HooK/">HooK</a>
+            
+              <a href="/tags/React/">React</a>
             
           </div>
         

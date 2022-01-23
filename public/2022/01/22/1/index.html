@@ -16,23 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="map 到底改不改变原数组一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[">
+    <meta name="description" content="Vue3 学习笔记Vue 和 React 数据驱动原理对比Vue1 解决方案是使用响应式，初始化的时候，watcher 监听数据的每个属性，数据发生变化的时候，就能够知道数据的哪个 key 变了，去修改对应的 DOM。 React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。 描述实际 D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="map 到底改不改变原数组">
-<meta property="og:url" content="http://example.com/2022/01/14/3/index.html">
+<meta property="og:title" content="Vue3 学习笔记">
+<meta property="og:url" content="http://example.com/2022/01/22/1/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="map 到底改不改变原数组一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[">
+<meta property="og:description" content="Vue3 学习笔记Vue 和 React 数据驱动原理对比Vue1 解决方案是使用响应式，初始化的时候，watcher 监听数据的每个属性，数据发生变化的时候，就能够知道数据的哪个 key 变了，去修改对应的 DOM。 React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。 描述实际 D">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/2022.01.14.3.png">
-<meta property="article:published_time" content="2022-01-14T05:53:44.000Z">
-<meta property="article:modified_time" content="2022-01-23T15:50:03.546Z">
+<meta property="og:image" content="http://example.com/img/2022.01.22.1.jpeg">
+<meta property="article:published_time" content="2022-01-22T02:46:00.000Z">
+<meta property="article:modified_time" content="2022-01-23T15:52:37.636Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="map">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/2022.01.14.3.png">
+<meta name="twitter:image" content="http://example.com/img/2022.01.22.1.jpeg">
   
   
-  <title>map 到底改不改变原数组 - Just.Upward</title>
+  <title>Vue3 学习笔记 - Just.Upward</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -179,7 +178,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="map 到底改不改变原数组">
+            <span class="h2" id="subtitle" title="Vue3 学习笔记">
               
             </span>
 
@@ -189,8 +188,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-14 13:53" pubdate>
-        2022年1月14日 下午
+      <time datetime="2022-01-22 10:46" pubdate>
+        2022年1月22日 上午
       </time>
     </span>
   
@@ -200,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.4k 字
     </span>
   
 
@@ -209,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      12 分钟
     </span>
   
 
@@ -238,38 +237,50 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">map 到底改不改变原数组</h1>
+            <h1 style="display: none">Vue3 学习笔记</h1>
             
             <div class="markdown-body">
-              <h1 id="map-到底改不改变原数组"><a href="#map-到底改不改变原数组" class="headerlink" title="map 到底改不改变原数组"></a>map 到底改不改变原数组</h1><p>一般认为 map 不会对原数组进行修改，但事实并不是如此。</p>
-<h2 id="数组内为基础类型数据时-原数组不变"><a href="#数组内为基础类型数据时-原数组不变" class="headerlink" title="数组内为基础类型数据时,原数组不变"></a>数组内为基础类型数据时,原数组不变</h2><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item * <span class="hljs-number">2</span>);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [1,2,3,4,5]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[2, 4, 6, 8, 10]</span><br></code></pre></div></td></tr></table></figure>
+              <h1 id="Vue3-学习笔记"><a href="#Vue3-学习笔记" class="headerlink" title="Vue3 学习笔记"></a>Vue3 学习笔记</h1><h2 id="Vue-和-React-数据驱动原理对比"><a href="#Vue-和-React-数据驱动原理对比" class="headerlink" title="Vue 和 React 数据驱动原理对比"></a>Vue 和 React 数据驱动原理对比</h2><p>Vue1 解决方案是使用响应式，初始化的时候，watcher 监听数据的每个属性，数据发生变化的时候，就能够知道数据的哪个 key 变了，去修改对应的 DOM。</p>
+<p>React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。</p>
+<p>描述实际 DOM 的虚拟 DOM 对象如下：</p>
+<p>DOM:</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="数据内是引用类型数据时，注意写法"><a href="#数据内是引用类型数据时，注意写法" class="headerlink" title="数据内是引用类型数据时，注意写法"></a>数据内是引用类型数据时，注意写法</h2><ol>
-<li><p>item 上直接修改，改变原数组</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Anna&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">16</span> &#125;,<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;<br>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  item.like = <span class="hljs-string">&quot;eat&quot;</span>;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br></code></pre></div></td></tr></table></figure></li>
-<li><p>开辟新的引用地址, 不改变原数组</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Anna&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">16</span> &#125;,<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;<br>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> obj = &#123; ...item, <span class="hljs-attr">like</span>: <span class="hljs-string">&quot;eat&quot;</span> &#125;;<br>  <span class="hljs-keyword">return</span> obj;<br>&#125;);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [&#123; name: &#x27;Anna&#x27;, age: 16&#125;,&#123; name: &#x27;James&#x27;, age: 18&#125;]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br></code></pre></div></td></tr></table></figure></li>
-</ol>
+<p>虚拟 DOM：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br>&#123;<br>  <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,<br>  <span class="hljs-attr">attrs</span>: &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;app&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">children</span>: [<br>    &#123;<br>      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;p&quot;</span>,<br>      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,<br>      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item1&quot;</span>]<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,<br>      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,<br>      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item2&quot;</span>]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>数据变化的时候生成一个新的虚拟 DOM 数据，对比之前的虚拟 DOM 进行 diff 计算，算出要修改的 DOM，再对页面进行操作。</p>
+<p>通知页面更新的方式不同：</p>
+<ul>
+<li>vue 中，数据变化，框架主动告诉你修改了哪些数据；</li>
+<li>react 中，变化变化后，通过新老数据的计算 Diff 来得知哪些数据发生变化</li>
+</ul>
+<p>性能问题：</p>
+<ul>
+<li>vue 的响应式，在项目大了之后，每个数据都有一个 watcher 会影响性能</li>
+<li>如果 react 虚拟 dom 过于庞大，使得 diff 计算时间大于 16.6 ms(屏幕刷新率 60HZ, 1/60)，可能造成性能卡顿。</li>
+</ul>
+<p>为了解决性能问题， Vue 和 react 走了不同的道路。</p>
+<ul>
+<li>react 借鉴操作系统时间分片概念，引入 Fiber 架构。把整个虚拟 DOM 树 微观化，变成链表，然后利用浏览器的空闲时间计算 diff。</li>
+<li>vue1 的问题在于响应式数据过多，会带来内存占用过多的问题。vue2 引入虚拟 DOM 来解决响应式数据过多问题。</li>
+</ul>
+<p>响应式数据是主动推送变化，虚拟 DOM 是被动计算数据的 diff。vue2 将两者结合在一起，在组件级别来划分。</p>
+<p>组件间的变化，通过响应式来通知更新。组件内部的数据变化，通过虚拟 DOM 去更新页面。最终，把响应式监听器控制在组件级别，而虚拟 DOM 的量级控制在组件的大小。</p>
+<p>在模板书写上，vue 和 react 分别走了 template 和 jsx 两个路线。</p>
+<ul>
+<li>react 世界只有 jsx，最终 jsx 都会在 Compiler 那层，即工程化那里编译成 js 来执行。</li>
+<li>vue 默认 template。vue3 优秀的其中一点是在虚拟 DOM 的静态标记上做到了极致，让静态的部分越过虚拟 DOM 的计算，真正做到按需更新，很好的提高了性能。</li>
+</ul>
+<hr>
+<p>上述笔记源于学习极客时间-大圣的 <a target="_blank" rel="noopener" href="http://gk.link/a/115Qp">玩转 Vue3 全家桶</a> 课程笔记整理。</p>
+<hr>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/JS/">JS</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/map/">map</a>
-                    
-                  </div>
                 
               </div>
               
@@ -284,18 +295,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/22/1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue3 学习笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/14/2/">
-                        <span class="hidden-mobile">如何在 class 组件中使用 hooks</span>
+                      <a href="/2022/01/14/3/">
+                        <span class="hidden-mobile">map 到底改不改变原数组</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
