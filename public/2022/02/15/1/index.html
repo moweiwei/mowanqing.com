@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/2022.02.16.1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-02-15T17:30:17.026Z">
+<meta property="article:modified_time" content="2022-02-16T01:54:19.965Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
@@ -200,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      5.5k 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      41 分钟
+      46 分钟
     </span>
   
 
@@ -290,7 +290,19 @@
 <p>代码体积优化:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">- 使用 babel-plugin-import 优化业务组件的引入，实现按需加载<br>- 使用 生产版本<br>- 使用 SplitChunksPlugin 拆分公共代码<br>- 分析 CSS 和 JS 代码覆盖率<br>- 优化 Webpack 中的库<br>- 使用动态 import，懒加载 React 组件<br>- 使用 webpack-bundle-analyzer 可视化 webpack 输出文件的大小<br>- 使用动态 import，懒加载 React 组件<br>- 使用 Tree Shaking &amp; 教程 &amp; Tree Shaking 优化<br></code></pre></div></td></tr></table></figure>
 
-<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p>1、HTTP有哪些请求方法？PUT 和 PATCH 有什么区别？</p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>1、Vue 组件 data 为什么必须是函数？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">因为组件是可以复用的,JS 里对象是引用关系,如果组件 data 是一个对象,那么子组件中的 data 属性值会互相污染。<br>所以一个组件的 data 选项必须是一个函数,因此每个实例可以维护一份被返回对象的独立的拷贝。<br></code></pre></div></td></tr></table></figure>
+
+<p>1、vue2 中响应式（双向绑定）的原理？vue3 的原理？<br>Proxy 与 Object.defineProperty 的优劣对比?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">Proxy的优势如下:<br><br>Proxy 可以直接监听对象而非属性<br>Proxy 可以直接监听数组的变化<br>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的<br>Proxy 返回的是一个新对象,我们可以只操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性直接修改<br>Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准的性能红利<br><br>Object.defineProperty 的优势如下:<br><br>兼容性好,支持 IE9<br></code></pre></div></td></tr></table></figure>
+
+<p>1、vuex 的工作流程是怎么样？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">Vuex有5个重要的属性，分别是 State、Getter、Mutation、Action、Module，由 view 层发起一个 Action 给 Mutation，在 Mutation 中修改状态，返回新的状态，通过 Getter暴露给 view层的组件或者页面，页面监测到状态改变于是更新页面。<br></code></pre></div></td></tr></table></figure>
+
+<ol>
+<li>Vue3 有哪些新的新特性？</li>
+</ol>
+<h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p>1、HTTP有哪些请求方法？PUT 和 PATCH 有什么区别？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">GET, POST 和 HEAD方法；OPTIONS, PUT, PATCH, DELETE, TRACE 和 CONNECT<br></code></pre></div></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs text">PUT和PATCH都是更新资源，而PATCH用来对资源进行局部更新。<br></code></pre></div></td></tr></table></figure>
