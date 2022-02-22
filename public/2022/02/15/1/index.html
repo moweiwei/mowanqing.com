@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/2022.02.16.1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-02-16T06:07:12.073Z">
+<meta property="article:modified_time" content="2022-02-17T02:15:16.596Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
@@ -200,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      6.4k 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46 分钟
+      54 分钟
     </span>
   
 
@@ -342,36 +342,68 @@
 <blockquote>
 <p>因为组件是可以复用的,JS 里对象是引用关系,如果组件 data 是一个对象,那么子组件中的 data 属性值会互相污染。<br>所以一个组件的 data 选项必须是一个函数,因此每个实例可以维护一份被返回对象的独立的拷贝。</p>
 </blockquote>
-<p>2、vue2 中响应式（双向绑定）的原理？vue3 的原理？<br>Proxy 与 Object.defineProperty 的优劣对比?</p>
+<p>2、直接给一个数组项赋值，Vue 能检测到变化吗？</p>
+<blockquote>
+<p>Vue 不能检测到以下数组的变动:</p>
+<p>1.当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</p>
+<p>2.当你修改数组的长度时，例如：vm.items.length = newLength</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">vm.$set(vm.items, indexOfItem, newValue)<br><br>vm.items.splice(newLength)<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>检测不到的原因是什么？</li>
+</ul>
+<blockquote>
+<p>当读取 obj.title 和修改 obj.title 的时候被 defineProperty 拦截，但 defineProperty 对不存在的属性无法拦截，所以 Vue 2 中所有数据必须要在 data 里声明。</p>
+<p>但是，Vue 不能检测到对象属性的添加或删除。因为 Vue 在初始化实例时将属性转为 getter/setter，所以属性必须在 data 对象上才能让 Vue 转换它，才能让它是响应的。需要额外的 $set。</p>
+</blockquote>
+<p>3、vue2 中响应式（双向绑定）的原理？vue3 的原理？<br>Proxy 与 Object.defineProperty 的优劣对比?</p>
 <blockquote>
 <p>Proxy的优势如下:<br>Proxy 可以直接监听对象而非属性<br>Proxy 可以直接监听数组的变化<br>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的<br>Proxy 返回的是一个新对象,我们可以只操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性直接修改<br>Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准的性能红利</p>
 <p>Object.defineProperty 的优势如下:</p>
 <p>兼容性好,支持 IE9</p>
 </blockquote>
-<p>3、vuex 的工作流程是怎么样？</p>
+<p>4、vuex 的工作流程是怎么样？</p>
 <blockquote>
 <p>Vuex有5个重要的属性，分别是 State、Getter、Mutation、Action、Module，由 view 层发起一个 Action 给 Mutation，在 Mutation 中修改状态，返回新的状态，通过 Getter暴露给 view层的组件或者页面，页面监测到状态改变于是更新页面。</p>
 </blockquote>
-<p>4、 Vue3 有哪些新的新特性？</p>
-<p>5、比较 Vue 和 React 两个框架，你觉得有哪些区别？</p>
-<blockquote>
-<p>监听数据变化的实现原理不同:<br>Vue 通过 getter/setter 以及一些函数的劫持，能精确知道数据变化.<br>react 中，数据变化后，通过新老数据的计算 Diff 来得知哪些数据发生变化。</p>
-<p>数据流的不同:</p>
-<p>模板渲染方式的不同:</p>
-</blockquote>
+<p>5、 Vue3 有哪些新的新特性？</p>
+<ul>
+<li>响应式系统</li>
+<li>自定义渲染器</li>
+<li>全部模块使用 TS 重构</li>
+<li>Composition API 组合语法</li>
+<li>新一代工程化工具 Vite</li>
+</ul>
+<p>6、父组件可以监听到子组件的生命周期吗？</p>
+<p>比如有父组件 Parent 和子组件 Child，如果父组件监听到子组件挂载 mounted 就做一些逻辑处理。</p>
+<p>方法一：手动通过 $emit 触发父组件的事件</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// Parent.vue</span><br>&lt;Child @mounted=<span class="hljs-string">&quot;doSomething&quot;</span>/&gt;<br>    <br><span class="hljs-comment">// Child.vue</span><br><span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&quot;mounted&quot;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>方法二：父组件引用子组件时通过 @hook 来监听</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//  Parent.vue</span><br>&lt;Child @hook:mounted=<span class="hljs-string">&quot;doSomething&quot;</span> &gt;&lt;/Child&gt;<br>    <br><span class="hljs-comment">//  Child.vue</span><br><span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span>&#123;<br>   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;子组件触发 mounted 钩子函数 ...&#x27;</span>);<br>&#125;,       <br></code></pre></div></td></tr></table></figure>
+<p>@hook 方法不仅仅是可以监听 mounted，其它的生命周期事件，例如：created，updated 等都可以监听。</p>
+<p>7、比较 Vue 和 React 两个框架，你觉得有哪些区别？</p>
+<ul>
+<li><p>监听数据变化的实现原理不同:</p>
+<p>  Vue 通过 getter/setter 以及一些函数的劫持，能精确知道数据变化.<br>  react 中，数据变化后，通过新老数据的计算 Diff 来得知哪些数据发生变化。</p>
+</li>
+<li><p>数据流的不同:</p>
+</li>
+<li><p>模板渲染方式的不同:</p>
+</li>
+</ul>
 <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p>1、HTTP有哪些请求方法？PUT 和 PATCH 有什么区别？</p>
-<blockquote>
-<p>GET, POST 和 HEAD方法；OPTIONS, PUT, PATCH, DELETE, TRACE 和 CONNECT</p>
-</blockquote>
-<blockquote>
-<p>PUT和PATCH都是更新资源，而PATCH用来对资源进行局部更新。</p>
-</blockquote>
+<ul>
+<li>GET, POST 和 HEAD方法；OPTIONS, PUT, PATCH, DELETE, TRACE 和 CONNECT</li>
+<li>PUT和PATCH都是更新资源，而PATCH用来对资源进行局部更新。</li>
+</ul>
 <p>2、http 状态码 403 是什么错误？</p>
-<blockquote>
-<p>403 forbidden，表示对请求资源的访问被服务器拒绝 </p>
-</blockquote>
+<ul>
+<li>403 forbidden，表示对请求资源的访问被服务器拒绝</li>
+</ul>
 <p>3、知道哪些 http 的缓存策略 ？控制缓存的请求头有哪些？</p>
-<ol>
+<ul>
 <li>HTTP缓存机制分为强制缓存和协商缓存两类。</li>
 <li>强制缓存的意思就是不要问了(不发起请求)，直接用缓存吧。</li>
 <li>强制缓存常见技术有Expires和Cache-Control。</li>
@@ -384,7 +416,7 @@
 <li>Last-Modified其实就是加上资源修改的时间，对应的常用request header为If-Modified-Since，精度为秒。</li>
 <li>ETag每次修改都会改变，而Last-Modified的精度只到秒，所以ETag更准确，优先级更高，但是需要计算，所以服务端开销更大。</li>
 <li>强制缓存和协商缓存都存在的情况下，先判断强制缓存是否生效，如果生效，不用发起请求，直接用缓存。如果强制缓存不生效再发起请求判断协商缓存。</li>
-</ol>
+</ul>
 <blockquote>
 <p>Cache-Control，ETag，Last-Modified</p>
 </blockquote>
@@ -392,46 +424,45 @@
 <h2 id="Devops-相关"><a href="#Devops-相关" class="headerlink" title="Devops 相关"></a>Devops 相关</h2><h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><ol>
 <li>谈谈一下对 nginx 的理解，项目中用到 nginx 的哪些功能？</li>
 </ol>
-<blockquote>
-<p>Nginx ，是一个 Web 服务器和反向代理服务器用于 HTTP、HTTPS、SMTP、POP3 和 IMAP 协议。</p>
-<p>主要功能如下：</p>
-<p>1、正向、反向代理 2、负载均衡、分流 3、虚拟主机（绑定host）</p>
-</blockquote>
+<ul>
+<li>Nginx ，是一个 Web 服务器和反向代理服务器用于 HTTP、HTTPS、SMTP、POP3 和 IMAP 协议。</li>
+<li>主要功能如下：<br>  正向、反向代理 2、负载均衡、分流 3、虚拟主机（绑定host）</li>
+</ul>
 <p>2、正向代理和反向代理区别是什么？</p>
-<blockquote>
-<p>正向代理是一个位于客户端和原始服务器之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定原始服务器，然后代理向原始服务器转交请求并将获得的内容返回给客户端。代理服务器和客户端处于同一个局域网内。</p>
-<p>比如说fanqiang。我知道我要访问谷歌，于是我就告诉代理服务器让它帮我转发。</p>
-<p>反向代理实际运行方式是代理服务器接受网络上的连接请求。它将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给网络上请求连接的客户端 。代理服务器和原始服务器处于同一个局域网内。</p>
-<p>比如说我要访问taobao，对我来说不知道图片、json、css 是不是同一个服务器返回回来的，但是我不关心，是反向代理 处理的，我不知道原始服务器。</p>
-</blockquote>
+<ul>
+<li>正向代理是一个位于客户端和原始服务器之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定原始服务器，然后代理向原始服务器转交请求并将获得的内容返回给客户端。代理服务器和客户端处于同一个局域网内。</li>
+<li>比如说fanqiang。我知道我要访问谷歌，于是我就告诉代理服务器让它帮我转发。</li>
+<li>反向代理实际运行方式是代理服务器接受网络上的连接请求。它将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给网络上请求连接的客户端 。代理服务器和原始服务器处于同一个局域网内。</li>
+<li>比如说我要访问taobao，对我来说不知道图片、json、css 是不是同一个服务器返回回来的，但是我不关心，是反向代理 处理的，我不知道原始服务器。</li>
+</ul>
 <p>3、nginx 如何来实现负载均衡？</p>
 <p>负载均衡的5种策略:</p>
 <figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><br> 1.轮询（默认）<br> 每个请求按时间顺序逐一分配到不同的后端服务器<br><br> upstream backserver &#123;<br>    server 192.168.0.14;<br>    server 192.168.0.15;<br>&#125;<br><br>2.weight<br>指定轮询几率，weight和访问概率成正比<br><br>upstream backserver &#123;<br>    server 192.168.0.14 weight=3;<br>    server 192.168.0.15 weight=7;<br>&#125;<br><br>3.ip_hash<br>已经登录某一个服务器的用户再重新定位到另一个服务器，其登录信息将会丢失，这样显然是不妥的.ip_hash指令解决这个问题，如果客户已经访问了某个服务器，当用户再次访问时，会将该请求通过哈希算法，自动定位到该服务器。<br><br>upstream backserver &#123;<br>    ip_hash;<br>    server 192.168.0.14:88;<br>    server 192.168.0.15:80;<br>&#125;<br><br>4.fair<br>按后端服务器的响应时间来分配请求，响应时间短的优先分配。<br><br>upstream backserver &#123;<br>    server server1;<br>    server server2;<br>    fair;<br>&#125;<br><br>5.url_hash<br>按访问url的<span class="hljs-built_in">hash</span>结果来分配请求，使每个url定向到同一个（对应的）后端服务器，后端服务器为缓存时比较有效。<br><br>upstream backserver &#123;<br>    server squid1:3128;<br>    server squid2:3128;<br>    <span class="hljs-built_in">hash</span> <span class="hljs-variable">$request_uri</span>;<br>    hash_method crc32;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>1、什么是 Docker？</p>
-<blockquote>
-<p>Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。</p>
-</blockquote>
+<ul>
+<li>Docker是一个容器化平台，它以容器的形式将您的应用程序及其所有依赖项打包在一起，以确保您的应用程序在任何环境中无缝运行。</li>
+</ul>
 <p>2、Dockerfile中最常见的指令是什么？</p>
-<blockquote>
-<p>FROM：指定基础镜像；LABEL：功能是为镜像指定标签；RUN：运行指定的命令；CMD：容器启动时要运行的命令。</p>
-</blockquote>
+<ul>
+<li>FROM：指定基础镜像；LABEL：功能是为镜像指定标签；RUN：运行指定的命令；CMD：容器启动时要运行的命令。</li>
+</ul>
 <h3 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h3><p>1、k8s是什么？请说出你的了解？</p>
-<blockquote>
-<p>Kubernetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。</p>
-</blockquote>
+<ul>
+<li>Kubernetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。</li>
+</ul>
 <p>2、k8s 集群里面最小的单位是什么？</p>
-<blockquote>
-<p>pod 是最小单位。每个pod里边可以运行一个或多个container（容器）</p>
-</blockquote>
+<ul>
+<li>pod 是最小单位。每个pod里边可以运行一个或多个container（容器）</li>
+</ul>
 <p>3、Service这种资源对象的作用是什么？</p>
-<blockquote>
-<p>用来给相同的多个pod对象提供一个固定的统一访问接口，常用于服务发现和服务访问。</p>
-</blockquote>
+<ul>
+<li>用来给相同的多个pod对象提供一个固定的统一访问接口，常用于服务发现和服务访问。</li>
+</ul>
 <h3 id="openstack"><a href="#openstack" class="headerlink" title="openstack"></a>openstack</h3><p>1、openstack 里 KeyStone 组件是用于提供什么服务的？Nova 组件是做什么用？</p>
-<blockquote>
-<p>认证服务（KeyStone）<br>Nova – 用于在计算级别管理虚拟机，并在计算或管理程序级别执行其他计算任务。</p>
-</blockquote>
+<ul>
+<li>认证服务（KeyStone）<br>Nova – 用于在计算级别管理虚拟机，并在计算或管理程序级别执行其他计算任务。</li>
+</ul>
 
             </div>
             <hr>
