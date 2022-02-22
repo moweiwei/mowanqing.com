@@ -7,18 +7,17 @@ layout: about
 1、关于我
 
 ```text
-  前端开发一枚;女儿奴;喜爱猫,家有蓝白，叫喵喵。
+  前端开发一枚;女儿奴;家有蓝白，叫喵喵。
 ```
 
 2、职业技能
 
 - 前端主流技术栈、框架
 - HTML、CSS、JS、TS
-- React
-- Vue
+- React 技术栈
+- Vue 技术栈
 - Node
-- Kubernetes 了解点概念，简单操作，考了 CKA，其他不会
-- 后端开发不会..
+- Kubernetes 了解点概念，简单操作, CKA
 
 3、工作状况
 
