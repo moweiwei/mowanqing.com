@@ -20,7 +20,7 @@ figure.highlight > i {
 }
 figure.highlight > span {
   color: #777;
-  margin-left: 10px;
+  margin-left: 5px;
   font-size: 0.875rem;
 }
 figure.highlight td:first-child {
