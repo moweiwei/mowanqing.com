@@ -180,9 +180,9 @@
     <category term="React" scheme="http://example.com/categories/React/"/>
     
     
-    <category term="HooK" scheme="http://example.com/tags/HooK/"/>
-    
     <category term="React" scheme="http://example.com/tags/React/"/>
+    
+    <category term="HooK" scheme="http://example.com/tags/HooK/"/>
     
   </entry>
   

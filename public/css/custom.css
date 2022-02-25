@@ -6,17 +6,15 @@ figure.highlight {
 figure.highlight table {
   border-radius: 0 0 0.5rem 0.5rem;
 }
-figure.highlight > .iconfont.icon-arrowdown {
-  transform: rotate(90deg);
-  transition: transform 0.2s ease-in-out;
-}
-figure.highlight .iconfont.icon-arrowdown.collapsed {
-  /* transform: rotate(-90deg); */
-}
 figure.highlight > i {
   color: #777;
   margin-left: 1rem;
   line-height: 2rem;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+figure.highlight > i.collapsed {
+  transform: rotate(0deg);
 }
 figure.highlight > span {
   color: #777;
