@@ -8,7 +8,7 @@ figure.highlight table {
 }
 figure.highlight > i {
   color: #777;
-  margin-left: 1rem;
+  margin-left: 10px;
   line-height: 2rem;
   transform: rotate(90deg);
   transition: transform 0.2s ease-in-out;
@@ -18,7 +18,7 @@ figure.highlight > i.collapsed {
 }
 figure.highlight > span {
   color: #777;
-  margin-left: 0.25rem;
+  margin-left: 5px;
   font-size: 0.875rem;
 }
 figure.highlight td:first-child {
