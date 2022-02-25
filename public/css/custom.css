@@ -1,0 +1,45 @@
+/* 代码块折叠 */
+figure.highlight {
+  background: #21252b;
+  border-radius: 0.5rem;
+}
+figure.highlight table {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+figure.highlight .iconfont.icon-arrowdown {
+  /* transform: none; */
+  transition: transform 0.2s ease-in-out;
+}
+figure.highlight .iconfont.icon-arrowdown.collapsed {
+  /* transform: rotate(-90deg); */
+}
+figure.highlight > i {
+  color: #777;
+  margin-left: 10px;
+  line-height: 2rem;
+}
+figure.highlight > span {
+  color: #777;
+  margin-left: 10px;
+  font-size: 0.875rem;
+}
+figure.highlight td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+figure.highlight > i:before {
+  content: "\f2c3";
+}
+
+/* 复制 */
+.copy-btn {
+  top: 5px;
+  font-size: 0.875rem;
+}
+.copy-btn > i {
+  font-size: 0.875rem;
+}
+.copy-btn-dark {
+  color: #2f4f4f;
+}
