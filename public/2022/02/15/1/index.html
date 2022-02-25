@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/2022.02.16.1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-02-25T06:18:42.463Z">
+<meta property="article:modified_time" content="2022-02-25T08:17:03.793Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.5k 字
+      6.7k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      54 分钟
+      56 分钟
     </span>
   
 
@@ -362,7 +362,7 @@
 <p>当读取 obj.title 和修改 obj.title 的时候被 defineProperty 拦截，但 defineProperty 对不存在的属性无法拦截，所以 Vue 2 中所有数据必须要在 data 里声明。</p>
 <p>但是，Vue 不能检测到对象属性的添加或删除。因为 Vue 在初始化实例时将属性转为 getter/setter，所以属性必须在 data 对象上才能让 Vue 转换它，才能让它是响应的。需要额外的 $set。</p>
 </blockquote>
-<p>3、vue2 中响应式（双向绑定）的原理？vue3 的原理？<br>Proxy 与 Object.defineProperty 的优劣对比?</p>
+<p>3、vue2 中响应式（双向绑定）的原理？vue3 的原理？<br>Proxy 与 Object.defineProperty 的优劣对比?<br>为什么在 Vue3.0 采用了 Proxy,抛弃了 Object.defineProperty？</p>
 <blockquote>
 <p>Proxy的优势如下:<br>Proxy 可以直接监听对象而非属性<br>Proxy 可以直接监听数组的变化<br>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的<br>Proxy 返回的是一个新对象,我们可以只操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性直接修改<br>Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准的性能红利</p>
 <p>Object.defineProperty 的优势如下:</p>
@@ -398,6 +398,10 @@
 <li><p>模板渲染方式的不同:</p>
 </li>
 </ul>
+<p>8、什么是异步组件？</p>
+<p>在声明或注册组件时，Vue 接受提供 Promise 的工厂函数。然后可以在调用该组件时对其进行“解析”。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;<br>    <span class="hljs-attr">components</span>: &#123;<br>        ‘tweet-box’: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(‘./components/<span class="hljs-keyword">async</span>/TweetBox’)<br>    &#125;<br>&#125;); <br></code></pre></div></td></tr></table></figure>
+
 <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p>1、HTTP有哪些请求方法？PUT 和 PATCH 有什么区别？</p>
 <ul>
 <li>GET, POST 和 HEAD方法；OPTIONS, PUT, PATCH, DELETE, TRACE 和 CONNECT</li>
