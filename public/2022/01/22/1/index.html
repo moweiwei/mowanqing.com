@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Just.Upward">
 <meta property="og:description" content="Vue3 学习笔记Vue 和 React 数据驱动原理对比Vue1 解决方案是使用响应式，初始化的时候，watcher 监听数据的每个属性，数据发生变化的时候，就能够知道数据的哪个 key 变了，去修改对应的 DOM。 React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。 描述实际 D">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/2022.01.22.1.jpeg">
+<meta property="og:image" content="http://example.com/img/2022-01-22-1.jpeg">
 <meta property="article:published_time" content="2022-01-22T02:46:00.000Z">
-<meta property="article:modified_time" content="2022-01-25T14:32:04.480Z">
+<meta property="article:modified_time" content="2022-02-28T02:47:44.086Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue3">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/2022.01.22.1.jpeg">
+<meta name="twitter:image" content="http://example.com/img/2022-01-22-1.jpeg">
   
   
   <title>Vue3 学习笔记 - Just.Upward</title>
@@ -288,7 +288,7 @@
 
 <p>Proxy 拦截 obj 这个数据，不关心 obj 里面属性，统一拦截。</p>
 <h3 id="自定义渲染器"><a href="#自定义渲染器" class="headerlink" title="自定义渲染器"></a>自定义渲染器</h3><p>vue2 内部所有模块是揉在一起，导致不好扩展。vue3 采用 monorepo 方式进行拆包，响应式、编译和运行时全部独立。独立出来的响应式，甚至可以在 react、node 中使用。</p>
-<p><img src="/img/2022.01.24.1.png" srcset="/img/loading.gif" lazyload alt="vue 架构"></p>
+<p><img src="/img/2022-01-24-1.png" srcset="/img/loading.gif" lazyload alt="vue 架构"></p>
 <p>渲染逻辑拆成 <strong>平台无关渲染逻辑</strong> 和 <strong>浏览器渲染 API</strong>。</p>
 <h3 id="全部模块使用-TS-重构"><a href="#全部模块使用-TS-重构" class="headerlink" title="全部模块使用 TS 重构"></a>全部模块使用 TS 重构</h3><p>Vue2 使用 Flow.js 做类型检测；Flow.js 已被抛弃，vue3 选择 TS。</p>
 <h3 id="Composition-API-组合语法"><a href="#Composition-API-组合语法" class="headerlink" title="Composition API 组合语法"></a>Composition API 组合语法</h3><p>vue2 中示例：</p>
@@ -310,7 +310,7 @@
 <li>代码复用方便，一个功能的所有 methods、data 封装在一个独立的函数里。</li>
 <li>Composotion API 新增的 return 等语句，在实际项目中使用。</li>
 </ul>
-<p><img src="/img/2022.01.24.2.png" srcset="/img/loading.gif" lazyload alt="Composition API"></p>
+<p><img src="/img/2022-01-24-2.png" srcset="/img/loading.gif" lazyload alt="Composition API"></p>
 <h3 id="新的组件"><a href="#新的组件" class="headerlink" title="新的组件"></a>新的组件</h3><p>Vue 3 还内置了 Fragment、Teleport 和 Suspense 三个新组件。</p>
 <ul>
 <li>Fragment: Vue 3 组件不再要求有一个唯一的根节点，清除了很多无用的占位 div。</li>
@@ -321,9 +321,9 @@
 <p>现代浏览器已经默认支持 ES6 的 import 语法，Vite 就是基于这个原理实现的。</p>
 <p>在开发环境下，不需要全部预打包，只要把首页依赖的文件，依次通过网络请求去获取，开发体验得到巨大提升，做到复杂项目时，也能做到秒级调试和热更新。</p>
 <p>webpack 工作原理如下，需要把所有路由依赖打包后，才能开始调试。</p>
-<p><img src="/img/2022.01.24.3.png" srcset="/img/loading.gif" lazyload alt="webpack 工作原理"></p>
+<p><img src="/img/2022-01-24-3.png" srcset="/img/loading.gif" lazyload alt="webpack 工作原理"></p>
 <p>Vite 工作原理，根据首页的依赖模块，再去获取路由 1 的模块，按需加载。</p>
-<p><img src="/img/2022.01.24.4.png" srcset="/img/loading.gif" lazyload alt="Vite 工作原理"></p>
+<p><img src="/img/2022-01-24-4.png" srcset="/img/loading.gif" lazyload alt="Vite 工作原理"></p>
 <h2 id="Vue3-响应式机制"><a href="#Vue3-响应式机制" class="headerlink" title="Vue3 响应式机制"></a>Vue3 响应式机制</h2><p>响应式原理：Vue 中用过三种响应式解决方案，分别是 defineProperty、Proxy 和 value setter。</p>
 <hr>
 <p>todo: 07</p>

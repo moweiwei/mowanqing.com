@@ -2,6 +2,6 @@
 title: {{ title }}
 date: {{ date }}
 tags:
-index_img: /img/2022.
+index_img: /img/index-img.png
 categories:
 ---
