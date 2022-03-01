@@ -16,16 +16,16 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="useState 引用类型数据更新不触发重新渲染问题useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState)">
+    <meta name="description" content="useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob">
 <meta property="og:type" content="article">
 <meta property="og:title" content="useState 引用类型数据更新不触发重新渲染问题">
 <meta property="og:url" content="http://example.com/2022/01/14/1/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="useState 引用类型数据更新不触发重新渲染问题useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState)">
+<meta property="og:description" content="useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/2022-01-14-1.png">
 <meta property="article:published_time" content="2022-01-14T02:24:50.000Z">
-<meta property="article:modified_time" content="2022-02-28T02:42:24.035Z">
+<meta property="article:modified_time" content="2022-03-01T02:47:08.636Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="HooK">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.2k 字
     </span>
   
 
@@ -245,7 +245,7 @@
             <h1 style="display: none">useState 引用类型数据更新不触发重新渲染问题</h1>
             
             <div class="markdown-body">
-              <h1 id="useState-引用类型数据更新不触发重新渲染问题"><a href="#useState-引用类型数据更新不触发重新渲染问题" class="headerlink" title="useState 引用类型数据更新不触发重新渲染问题"></a>useState 引用类型数据更新不触发重新渲染问题</h1><h2 id="useState-函数式更新"><a href="#useState-函数式更新" class="headerlink" title="useState 函数式更新"></a>useState 函数式更新</h2><p>与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。</p>
+              <h2 id="useState-函数式更新"><a href="#useState-函数式更新" class="headerlink" title="useState 函数式更新"></a>useState 函数式更新</h2><p>与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> [state, setState] = useState(&#123;&#125;);<br>setState(<span class="hljs-function">(<span class="hljs-params">prevState</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 也可以使用 Object.assign</span><br>  <span class="hljs-keyword">return</span> &#123; ...prevState, ...updatedValues &#125;;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="引用类型-state-更新"><a href="#引用类型-state-更新" class="headerlink" title="引用类型 state 更新"></a>引用类型 state 更新</h2><p>经常 state 数据不是简单数据类型(值类型)，而是数组、对象之类(引用类型).而 React 组件的更新机制对 state 只进行浅对比，也就是更新某个复杂类型数据时只要它的引用地址没变，那就不会重新渲染组件。</p>
