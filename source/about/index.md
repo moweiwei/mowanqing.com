@@ -7,7 +7,7 @@ layout: about
 1、关于我
 
 ```text
-  前端开发一枚;女儿奴;家有蓝白，叫喵喵。
+  前端开发一枚、家有贤妻、女儿奴、有只蓝白，叫喵喵。
 ```
 
 2、职业技能
@@ -17,16 +17,16 @@ layout: about
 - React 技术栈
 - Vue 技术栈
 - Node
-- Kubernetes 了解点概念，简单操作, CKA
+- Kubernetes、Docker 简单概念，日常操作, CKA
 
 3、工作状况
 
 - 目前就职于九州云
-- 容器相关
+- 容器云相关
 
 4、学习计划
 
-- 深入学习 React Hooks
+- 深入学习 React
 
 5、联系我
 
