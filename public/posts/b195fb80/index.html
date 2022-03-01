@@ -16,23 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[2, 4, 6, 8, 1">
+    <meta name="description" content="useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob">
 <meta property="og:type" content="article">
-<meta property="og:title" content="map 到底改不改变原数组">
-<meta property="og:url" content="http://example.com/2022/01/14/3/index.html">
+<meta property="og:title" content="useState 引用类型数据更新不触发重新渲染问题">
+<meta property="og:url" content="http://example.com/posts/b195fb80/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[2, 4, 6, 8, 1">
+<meta property="og:description" content="useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/2022-01-14-3.png">
-<meta property="article:published_time" content="2022-01-14T05:53:44.000Z">
-<meta property="article:modified_time" content="2022-03-01T02:47:22.457Z">
+<meta property="og:image" content="http://example.com/img/2022-01-14-1.png">
+<meta property="article:published_time" content="2022-01-14T02:24:50.000Z">
+<meta property="article:modified_time" content="2022-03-01T02:47:08.636Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="map">
+<meta property="article:tag" content="HooK">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/2022-01-14-3.png">
+<meta name="twitter:image" content="http://example.com/img/2022-01-14-1.png">
   
   
-  <title>map 到底改不改变原数组 - Just.Upward</title>
+  <title>useState 引用类型数据更新不触发重新渲染问题 - Just.Upward</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="map 到底改不改变原数组">
+            <span class="h2" id="subtitle" title="useState 引用类型数据更新不触发重新渲染问题">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-14 13:53" pubdate>
-        2022年1月14日 下午
+      <time datetime="2022-01-14 10:24" pubdate>
+        2022年1月14日 上午
       </time>
     </span>
   
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      11 分钟
     </span>
   
 
@@ -242,17 +242,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">map 到底改不改变原数组</h1>
+            <h1 style="display: none">useState 引用类型数据更新不触发重新渲染问题</h1>
             
             <div class="markdown-body">
-              <p>一般认为 map 不会对原数组进行修改，但事实并不是如此。</p>
-<h2 id="数组内为基础类型数据时-原数组不变"><a href="#数组内为基础类型数据时-原数组不变" class="headerlink" title="数组内为基础类型数据时,原数组不变"></a>数组内为基础类型数据时,原数组不变</h2><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item * <span class="hljs-number">2</span>);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [1,2,3,4,5]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[2, 4, 6, 8, 10]</span><br></code></pre></div></td></tr></table></figure>
+              <h2 id="useState-函数式更新"><a href="#useState-函数式更新" class="headerlink" title="useState 函数式更新"></a>useState 函数式更新</h2><p>与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> [state, setState] = useState(&#123;&#125;);<br>setState(<span class="hljs-function">(<span class="hljs-params">prevState</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 也可以使用 Object.assign</span><br>  <span class="hljs-keyword">return</span> &#123; ...prevState, ...updatedValues &#125;;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
-<h2 id="数据内是引用类型数据时，注意写法"><a href="#数据内是引用类型数据时，注意写法" class="headerlink" title="数据内是引用类型数据时，注意写法"></a>数据内是引用类型数据时，注意写法</h2><ol>
-<li><p>item 上直接修改，改变原数组</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Anna&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">16</span> &#125;,<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;<br>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  item.like = <span class="hljs-string">&quot;eat&quot;</span>;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br></code></pre></div></td></tr></table></figure></li>
-<li><p>开辟新的引用地址, 不改变原数组</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> array = [<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Anna&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">16</span> &#125;,<br>  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;<br>];<br><span class="hljs-keyword">let</span> newArray = array.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> obj = &#123; ...item, <span class="hljs-attr">like</span>: <span class="hljs-string">&quot;eat&quot;</span> &#125;;<br>  <span class="hljs-keyword">return</span> obj;<br>&#125;);<br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [&#123; name: &#x27;Anna&#x27;, age: 16&#125;,&#123; name: &#x27;James&#x27;, age: 18&#125;]</span><br><span class="hljs-built_in">console</span>.log(newArray); <span class="hljs-comment">//[&#123; name: &#x27;Anna&#x27;, age: 16,like: &quot;eat&quot;&#125;,&#123; name: &#x27;James&#x27;, age: 18,like: &quot;eat&quot;&#125;]</span><br></code></pre></div></td></tr></table></figure></li>
+<h2 id="引用类型-state-更新"><a href="#引用类型-state-更新" class="headerlink" title="引用类型 state 更新"></a>引用类型 state 更新</h2><p>经常 state 数据不是简单数据类型(值类型)，而是数组、对象之类(引用类型).而 React 组件的更新机制对 state 只进行浅对比，也就是更新某个复杂类型数据时只要它的引用地址没变，那就不会重新渲染组件。</p>
+<p>尤其当被更新的引用类型数据需要依赖之前的数据时，容易踩坑,不触发更新。更新复杂 state 的时候必须传给它一个全新的对象，而不是复制了它引用地址再修改的对象。</p>
+<p>两种解决办法：</p>
+<ol>
+<li><p>结合展开运算符返回一个新对象</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextValue</span>(<span class="hljs-params">preValue</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> ipValue = <span class="hljs-built_in">Number</span>.parseInt(newVal, <span class="hljs-number">10</span>);<br><br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Number</span>.isNaN(ipValue)) &#123;<br>    ipValue = <span class="hljs-literal">undefined</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (ipValue &lt; <span class="hljs-number">0</span>) &#123;<br>    ipValue = <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (ipValue &gt; <span class="hljs-number">255</span>) &#123;<br>    ipValue = <span class="hljs-number">255</span>;<br>  &#125;<br>  preValue[index] = ipValue; <span class="hljs-comment">//这里数据引用地址的值同样被修改</span><br>  <span class="hljs-keyword">return</span> [...preValue]; <span class="hljs-comment">// 数据最外层的引用地址不同即可触发组件更新</span><br>&#125;<br><br>setValue(<span class="hljs-function">(<span class="hljs-params">preValue</span>) =&gt;</span> nextValue(preValue));<br></code></pre></div></td></tr></table></figure></li>
+<li><p>深拷贝对象，用全新的副本更新数据。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextValue</span>(<span class="hljs-params">preValue</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> newValue = _.cloneDeep(preValue);<br>  <span class="hljs-keyword">let</span> ipValue = <span class="hljs-built_in">Number</span>.parseInt(newVal, <span class="hljs-number">10</span>);<br><br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Number</span>.isNaN(ipValue)) &#123;<br>    ipValue = <span class="hljs-literal">undefined</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (ipValue &lt; <span class="hljs-number">0</span>) &#123;<br>    ipValue = <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (ipValue &gt; <span class="hljs-number">255</span>) &#123;<br>    ipValue = <span class="hljs-number">255</span>;<br>  &#125;<br>  newValue[index] = ipValue; <span class="hljs-comment">//这里数据引用地址的值同样被修改</span><br>  <span class="hljs-keyword">return</span> newValue; <span class="hljs-comment">// 数据最外层的引用地址不同即可触发组件更新</span><br>&#125;<br><br>setValue(<span class="hljs-function">(<span class="hljs-params">preValue</span>) =&gt;</span> nextValue(preValue));<br></code></pre></div></td></tr></table></figure></li>
 </ol>
 
             </div>
@@ -263,7 +266,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JS/">JS</a>
+                      <a class="hover-with-bg" href="/categories/React/">React</a>
                     
                   </div>
                 
@@ -271,7 +274,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/map/">map</a>
+                      <a class="hover-with-bg" href="/tags/HooK/">HooK</a>
                     
                   </div>
                 
@@ -288,9 +291,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/22/1/">
+                      <a href="/posts/ee7a9294/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue3 学习笔记</span>
+                        <span class="hidden-mobile">如何在 class 组件中使用 hooks</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -298,8 +301,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/14/2/">
-                        <span class="hidden-mobile">如何在 class 组件中使用 hooks</span>
+                      <a href="/posts/bb88c12/">
+                        <span class="hidden-mobile">使用 useRef 跨生命周期保存变量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

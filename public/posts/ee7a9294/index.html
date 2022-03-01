@@ -16,23 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第 1 天 (2022.02.28)1. 什么时候使用状态管理器？ 组件状态要在多个组件共享时 某个组件状态需要在任何地方可以拿到 一个组件需要改变全局状态时 一个组件需要改变另一个组件状态时 组件状态提升提升不能满足需求时，层级过多时。  2. render 函数中 return 如果没有使用()会有什么问题？避免遇到自动插入分号陷阱。 我们在使用 JSX 语法书写 react 代码时，babe">
+    <meta name="description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FE-Interview">
-<meta property="og:url" content="http://example.com/2022/01/01/1/index.html">
+<meta property="og:title" content="如何在 class 组件中使用 hooks">
+<meta property="og:url" content="http://example.com/posts/ee7a9294/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="第 1 天 (2022.02.28)1. 什么时候使用状态管理器？ 组件状态要在多个组件共享时 某个组件状态需要在任何地方可以拿到 一个组件需要改变全局状态时 一个组件需要改变另一个组件状态时 组件状态提升提升不能满足需求时，层级过多时。  2. render 函数中 return 如果没有使用()会有什么问题？避免遇到自动插入分号陷阱。 我们在使用 JSX 语法书写 react 代码时，babe">
+<meta property="og:description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numb">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/2022-01-01-1.jpeg">
-<meta property="article:published_time" content="2022-01-01T15:28:37.000Z">
-<meta property="article:modified_time" content="2022-03-01T02:46:56.844Z">
+<meta property="og:image" content="http://example.com/img/2022-01-14-2.png">
+<meta property="article:published_time" content="2022-01-14T03:03:28.000Z">
+<meta property="article:modified_time" content="2022-03-01T02:47:16.509Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="前端">
+<meta property="article:tag" content="HooK">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/2022-01-01-1.jpeg">
+<meta name="twitter:image" content="http://example.com/img/2022-01-14-2.png">
   
   
-  <title>FE-Interview - Just.Upward</title>
+  <title>如何在 class 组件中使用 hooks - Just.Upward</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="FE-Interview">
+            <span class="h2" id="subtitle" title="如何在 class 组件中使用 hooks">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-01 23:28" pubdate>
-        2022年1月1日 晚上
+      <time datetime="2022-01-14 11:03" pubdate>
+        2022年1月14日 上午
       </time>
     </span>
   
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2.2k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      19 分钟
     </span>
   
 
@@ -242,48 +242,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">FE-Interview</h1>
+            <h1 style="display: none">如何在 class 组件中使用 hooks</h1>
             
             <div class="markdown-body">
-              <h2 id="第-1-天-2022-02-28"><a href="#第-1-天-2022-02-28" class="headerlink" title="第 1 天 (2022.02.28)"></a>第 1 天 (2022.02.28)</h2><h3 id="1-什么时候使用状态管理器？"><a href="#1-什么时候使用状态管理器？" class="headerlink" title="1. 什么时候使用状态管理器？"></a>1. 什么时候使用状态管理器？</h3><ol>
-<li>组件状态要在多个组件共享时</li>
-<li>某个组件状态需要在任何地方可以拿到</li>
-<li>一个组件需要改变全局状态时</li>
-<li>一个组件需要改变另一个组件状态时</li>
-<li>组件状态提升提升不能满足需求时，层级过多时。</li>
-</ol>
-<h3 id="2-render-函数中-return-如果没有使用-会有什么问题？"><a href="#2-render-函数中-return-如果没有使用-会有什么问题？" class="headerlink" title="2. render 函数中 return 如果没有使用()会有什么问题？"></a>2. render 函数中 return 如果没有使用()会有什么问题？</h3><p>避免遇到自动插入分号陷阱。</p>
-<p>我们在使用 JSX 语法书写 react 代码时，babel 会将 JSX 语法编译成 js，同时会在每行自动添加分号（；），如果 return 后换行了，那么就会变成 return； 一般情况下会报错：</p>
-<p>Nothing was returned from render. This usually means a return statement is missing. Or, to render nothing, return null.<br>上面这段英文翻译成中文：</p>
-<p>渲染没有返回任何内容。这通常意味着缺少 return 语句。或者，为了不渲染，返回 null。<br>为了代码可读性我们一般会在 return 后面添加括号这样代码可以折行书写，否则就在 return 后面紧跟着语句，这样也是可以的。</p>
-<p>举两个正确的书写例子：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> Nav = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;c_navbar&quot;</span>&gt;</span></span><br><span class="xml">      &#123; some jsx magic here &#125;</span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span><br>    )<br>  &#125;<br><br><span class="hljs-keyword">const</span> Nav = <span class="hljs-function">() =&gt;</span> &#123;<br><span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;c_navbar&quot;</span>&gt;</span></span><br><span class="xml">    &#123; some jsx magic here &#125;</span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <p>解决办法</p>
+<p>以一个简单的 <code>useScreenWidthhook</code> 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useScreenWidth</span>(<span class="hljs-params"></span>): <span class="hljs-title">number</span> </span>&#123;<br>  <span class="hljs-keyword">const</span> [width, setWidth] = useState(<span class="hljs-built_in">window</span>.innerWidth);<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> handler = <span class="hljs-function">(<span class="hljs-params">event: any</span>) =&gt;</span> &#123;<br>      setWidth(event.target.innerWidth);<br>    &#125;;<br>    <span class="hljs-comment">// 监听浏览器窗口变化</span><br>    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    <span class="hljs-comment">// 组件unmount时要解除监听</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    &#125;;<br>  &#125;, []);<br><br>  <span class="hljs-keyword">return</span> width;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p>错误的写法：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> Nav = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span><br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;c_navbar&quot;</span>&gt;</span></span><br><span class="xml">      &#123; some jsx magic here &#125;</span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="方法-1：将-Hook-包装成-HOC"><a href="#方法-1：将-Hook-包装成-HOC" class="headerlink" title="方法 1：将 Hook 包装成 HOC"></a>方法 1：将 Hook 包装成 HOC</h2><p>HOC 是 React 中复用组件的高级用法，它的本质是一个函数，它的输入参数是一个组件，返回相同的组件以及一些额外的 props。在我们的例子里，可以让 hook 函数作为 props 传递到目标组件中:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> withHooksHOC = <span class="hljs-function">(<span class="hljs-params">Component: any</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">props: any</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> screenWidth = useScreenWidth();<br><br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#123;screenWidth&#125;</span> &#123;<span class="hljs-attr">...props</span>&#125; /&gt;</span></span>;<br>  &#125;;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="3-componentWillUpdate-可以直接修改-state-的值吗？"><a href="#3-componentWillUpdate-可以直接修改-state-的值吗？" class="headerlink" title="3. componentWillUpdate 可以直接修改 state 的值吗？"></a>3. componentWillUpdate 可以直接修改 state 的值吗？</h3><p>直接修改不可以，但是加上条件就可以。</p>
-<p>文档原文：“你也可以在 componentDidUpdate() 中直接调用 setState()，但请注意它必须被包裹在一个条件语句里，正如上述的例子那样进行处理，否则会导致死循环。它还会导致额外的重新渲染，虽然用户不可见，但会影响组件性能。”</p>
-<p>componentWillReceiveProps 同理</p>
-<h3 id="4-说说你对-React-的渲染原理的理解"><a href="#4-说说你对-React-的渲染原理的理解" class="headerlink" title="4. 说说你对 React 的渲染原理的理解"></a>4. 说说你对 React 的渲染原理的理解</h3><ol>
-<li>React 会调用 React.render()构建一颗 DOM 树，生成虚拟 dom。</li>
-<li>通过改变 state 或 props 触发更新。</li>
-<li>对比新旧虚拟 dom，diff 算法，深度优先，将实际需要改变的反应到真实 dom。</li>
-</ol>
-<h2 id="第-2-天-2022-03-01"><a href="#第-2-天-2022-03-01" class="headerlink" title="第 2 天 (2022.03.01)"></a>第 2 天 (2022.03.01)</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/949">什么渲染劫持？</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/948">React Intl是什么原理？</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/947">你有使用过React Intl吗？</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/946">怎么实现React组件的国际化呢？</a></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2></li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">https://github.com/qiu-deqing/FE-interview</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a></p>
-</li>
-</ul>
+<p>将我们的目标组件用上述的 withHooksHOC 包装起来</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; withHooksHOC &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./withHooksHOC&quot;</span>;<br><br>interface IHooksHOCProps &#123;<br>  <span class="hljs-attr">width</span>: number;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksHOC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>&lt;<span class="hljs-title">IHooksHOCProps</span>&gt; </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>width: &#123;this.props.width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> withHooksHOC(HooksHOC);<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="方法-2：将-Hook-包装成函数组件"><a href="#方法-2：将-Hook-包装成函数组件" class="headerlink" title="方法 2：将 Hook 包装成函数组件"></a>方法 2：将 Hook 包装成函数组件</h2><p>将 hook 变成函数组件，它接收一个参数为 width 的 children 函数，然后将 width 作为 render prop 传递：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; FunctionComponent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;<br><br>type ScreenWidthChildren = <span class="hljs-function">(<span class="hljs-params">screenWidth: number</span>) =&gt;</span> React.ReactNode;<br><br>interface IScreenWidthProps &#123;<br>  <span class="hljs-attr">children</span>: ScreenWidthChildren;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ScreenWidth: FunctionComponent&lt;IScreenWidthProps&gt; = <span class="hljs-function">(<span class="hljs-params">&#123; children &#125;</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> screenWidth: number = useScreenWidth();<br><br>  <span class="hljs-keyword">return</span> children(screenWidth);<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; ScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./ScreenWidth&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksRenderProps</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenWidth</span>&gt;</span>&#123;(width) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;</span> <span class="hljs-attr">fontSize:</span> &quot;<span class="hljs-attr">48px</span>&quot; &#125;&#125;&gt;</span>width: &#123;width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">ScreenWidth</span>&gt;</span></span>;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -293,7 +269,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                      <a class="hover-with-bg" href="/categories/React/">React</a>
                     
                   </div>
                 
@@ -301,7 +277,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                      <a class="hover-with-bg" href="/tags/HooK/">HooK</a>
                     
                   </div>
                 
@@ -318,9 +294,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/13/1/">
+                      <a href="/posts/d177e434/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用 useRef 跨生命周期保存变量</span>
+                        <span class="hidden-mobile">map 到底改不改变原数组</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -328,8 +304,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/01/1/">
-                        <span class="hidden-mobile">日常使用的容器镜像操作命令</span>
+                      <a href="/posts/b195fb80/">
+                        <span class="hidden-mobile">useState 引用类型数据更新不触发重新渲染问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
