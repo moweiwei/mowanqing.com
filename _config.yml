@@ -4,16 +4,16 @@
 
 # Site
 title: Just.Upward
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
+subtitle: 'ddd'
+description: 'moweiwei 的博客'
+keywords: 博客 mowanqing
+author: Moweiwei
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://mowanqing.com
 # permalink: :year/:month/:day/:title/
 # permalink_defaults:
 permalink: posts/:abbrlink/
