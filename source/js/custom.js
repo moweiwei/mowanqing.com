@@ -62,4 +62,8 @@ function addLanguage() {
   }
 }
 
-$(document).ready(addLanguage);
+function init() {
+  addLanguage();
+}
+
+$(document).ready(init);
