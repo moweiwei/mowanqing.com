@@ -18,21 +18,21 @@
   
     <meta name="description" content="声明空间ts 中有两种：类型声明空间与变量声明空间 类型声明空间： 123class Foo &amp;#123;&amp;#125;interface Bar &amp;#123;&amp;#125;type Bas &#x3D; &amp;#123;&amp;#125;;  如下当做类型注解使用 123let foo: Foo;let bar: Bar;let bas: Bas;  定义 interface Bar {} 不能当做变量来用，因为它没有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TypeScript">
+<meta property="og:title" content="TypeScript 笔记">
 <meta property="og:url" content="http://mowanqing.com/posts/81dvefb9/index.html">
 <meta property="og:site_name" content="Just.Upward">
 <meta property="og:description" content="声明空间ts 中有两种：类型声明空间与变量声明空间 类型声明空间： 123class Foo &amp;#123;&amp;#125;interface Bar &amp;#123;&amp;#125;type Bas &#x3D; &amp;#123;&amp;#125;;  如下当做类型注解使用 123let foo: Foo;let bar: Bar;let bas: Bas;  定义 interface Bar {} 不能当做变量来用，因为它没有">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-03-16-1.png">
 <meta property="article:published_time" content="2022-03-16T15:19:28.000Z">
-<meta property="article:modified_time" content="2022-03-16T17:16:00.547Z">
+<meta property="article:modified_time" content="2022-03-16T17:18:48.041Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mowanqing.com/img/2022-03-16-1.png">
   
   
-  <title>TypeScript - Just.Upward</title>
+  <title>TypeScript 笔记 - Just.Upward</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -73,7 +73,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mowanqing.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"mowanqing.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="TypeScript">
+            <span class="h2" id="subtitle" title="TypeScript 笔记">
               
             </span>
 
@@ -242,7 +242,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">TypeScript</h1>
+            <h1 style="display: none">TypeScript 笔记</h1>
             
             <div class="markdown-body">
               <h2 id="声明空间"><a href="#声明空间" class="headerlink" title="声明空间"></a>声明空间</h2><p>ts 中有两种：类型声明空间与变量声明空间</p>
