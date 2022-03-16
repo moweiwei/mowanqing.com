@@ -6,7 +6,7 @@
   <link href="http://mowanqing.com/atom.xml" rel="self"/>
   
   <link href="http://mowanqing.com/"/>
-  <updated>2022-03-08T01:32:10.077Z</updated>
+  <updated>2022-03-16T15:41:03.491Z</updated>
   <id>http://mowanqing.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VS Code 体验极好的配置</title>
+    <link href="http://mowanqing.com/posts/1ad5be0d/"/>
+    <id>http://mowanqing.com/posts/1ad5be0d/</id>
+    <published>2022-03-16T15:30:46.000Z</published>
+    <updated>2022-03-16T15:41:03.491Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="console-log-快捷输入"><a href="#console-log-快捷输入" class="headerlink" title="console.log 快捷输入"></a>console.log 快捷输入</h2><p>打开 <code>文件 --&gt; 首选项 --&gt; 用户片段</code></p><p>在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to console&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;log&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;console.log(&#x27;$1&#x27;);&quot;</span>,<br><span class="hljs-string">&quot;$2&quot;</span><br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Log output to console&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><h3 id="markdown-代码段快捷输入"><a href="#markdown-代码段快捷输入" class="headerlink" title="markdown 代码段快捷输入"></a>markdown 代码段快捷输入</h3><p>同上 在 markdown.json 中继续配置如下</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to ```js&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;js代码片段&quot;</span><br>&#125;,<br><span class="hljs-string">&quot;Print to ```jsx&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;jsx代码片段&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><p>配置添加后，markdown 中输入 ```js 并没有快捷提示 还需要在 setting.json 中添加如下配置</p><p>setting.json 打开位置：打开vs code的设置，文件 –&gt; 首选项 –&gt; 设置 –&gt; 打开设置（在设置的右上角）</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;[markdown]&quot;</span>:&#123;<br>    <span class="hljs-string">&quot;editor.quickSuggestions&quot;</span>: <span class="hljs-literal">true</span><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;console-log-快捷输入&quot;&gt;&lt;a href=&quot;#console-log-快捷输入&quot; class=&quot;headerlink&quot; title=&quot;console.log 快捷输入&quot;&gt;&lt;/a&gt;console.log 快捷输入&lt;/h2&gt;&lt;p&gt;打开 &lt;code&gt;文件 --</summary>
+      
+    
+    
+    
+    <category term="vscode" scheme="http://mowanqing.com/categories/vscode/"/>
+    
+    
+    <category term="vscode" scheme="http://mowanqing.com/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript</title>
+    <link href="http://mowanqing.com/posts/83dcefb7/"/>
+    <id>http://mowanqing.com/posts/83dcefb7/</id>
+    <published>2022-03-16T15:19:28.000Z</published>
+    <updated>2022-03-16T15:29:57.892Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><p>两种方式定义数组：</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;基础数据类型&quot;&gt;&lt;a href=&quot;#基础数据类型&quot; class=&quot;headerlink&quot; title=&quot;基础数据类型&quot;&gt;&lt;/a&gt;基础数据类型&lt;/h2&gt;&lt;p&gt;两种方式定义数组：&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="TypeScript" scheme="http://mowanqing.com/categories/TypeScript/"/>
+    
+    
+    <category term="TypeScript" scheme="http://mowanqing.com/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>1</title>
@@ -187,9 +236,9 @@
     <category term="React" scheme="http://mowanqing.com/categories/React/"/>
     
     
-    <category term="HooK" scheme="http://mowanqing.com/tags/HooK/"/>
-    
     <category term="React" scheme="http://mowanqing.com/tags/React/"/>
+    
+    <category term="HooK" scheme="http://mowanqing.com/tags/HooK/"/>
     
   </entry>
   
