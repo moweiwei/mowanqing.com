@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mowanqing.com/posts/83dcefb7/</loc>
+    <loc>http://mowanqing.com/posts/81dvefb9/</loc>
     
     <lastmod>2022-03-16</lastmod>
     
@@ -147,13 +147,6 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2022-03-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://mowanqing.com/tags/Vue3/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -168,7 +161,7 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/vscode/</loc>
+    <loc>http://mowanqing.com/tags/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -176,6 +169,13 @@
   
   <url>
     <loc>http://mowanqing.com/tags/TypeScript/</loc>
+    <lastmod>2022-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://mowanqing.com/tags/vscode/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -219,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/vscode/</loc>
+    <loc>http://mowanqing.com/categories/TypeScript/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/TypeScript/</loc>
+    <loc>http://mowanqing.com/categories/vscode/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
