@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>VS Code 体验极好的配置</title>
-    <link href="/posts/1ad5be0d/"/>
-    <url>/posts/1ad5be0d/</url>
-    
-    <content type="html"><![CDATA[<h2 id="console-log-快捷输入"><a href="#console-log-快捷输入" class="headerlink" title="console.log 快捷输入"></a>console.log 快捷输入</h2><p>打开 <code>文件 --&gt; 首选项 --&gt; 用户片段</code></p><p>在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to console&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;log&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;console.log(&#x27;$1&#x27;);&quot;</span>,<br><span class="hljs-string">&quot;$2&quot;</span><br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Log output to console&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><h2 id="markdown-代码段快捷输入"><a href="#markdown-代码段快捷输入" class="headerlink" title="markdown 代码段快捷输入"></a>markdown 代码段快捷输入</h2><p>同上 在 markdown.json 中继续配置如下</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to ```js&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;js代码片段&quot;</span><br>&#125;,<br><span class="hljs-string">&quot;Print to ```jsx&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;jsx代码片段&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><p>配置添加后，markdown 中输入 ```js 并没有快捷提示 还需要在 setting.json 中添加如下配置</p><p>setting.json 打开位置：打开vs code的设置，文件 –&gt; 首选项 –&gt; 设置 –&gt; 打开设置（在设置的右上角）</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;[markdown]&quot;</span>:&#123;<br>    <span class="hljs-string">&quot;editor.quickSuggestions&quot;</span>: <span class="hljs-literal">true</span><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>vscode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vscode</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>TypeScript 笔记</title>
     <link href="/posts/81dvefb9/"/>
     <url>/posts/81dvefb9/</url>
@@ -96,6 +71,31 @@
     <tags>
       
       <tag>前端</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VS Code Nice 配置</title>
+    <link href="/posts/1ad5be0d/"/>
+    <url>/posts/1ad5be0d/</url>
+    
+    <content type="html"><![CDATA[<h2 id="console-log-快捷输入"><a href="#console-log-快捷输入" class="headerlink" title="console.log 快捷输入"></a>console.log 快捷输入</h2><p>打开 <code>文件 --&gt; 首选项 --&gt; 用户片段</code></p><p>在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to console&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;log&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;console.log(&#x27;$1&#x27;);&quot;</span>,<br><span class="hljs-string">&quot;$2&quot;</span><br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Log output to console&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><h2 id="markdown-代码段快捷输入"><a href="#markdown-代码段快捷输入" class="headerlink" title="markdown 代码段快捷输入"></a>markdown 代码段快捷输入</h2><p>同上 在 markdown.json 中继续配置如下</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;Print to ```js&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```js&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;js代码片段&quot;</span><br>&#125;,<br><span class="hljs-string">&quot;Print to ```jsx&quot;</span>: &#123;<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;```jsx&quot;</span>,<br><span class="hljs-string">&quot;$1&quot;</span>,<br><span class="hljs-string">&quot;```&quot;</span>,<br>],<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;jsx代码片段&quot;</span><br>&#125;,<br></code></pre></div></td></tr></table></figure><p>配置添加后，markdown 中输入 ```js 并没有快捷提示 还需要在 setting.json 中添加如下配置</p><p>setting.json 打开位置：打开vs code的设置，文件 –&gt; 首选项 –&gt; 设置 –&gt; 打开设置（在设置的右上角）</p><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-string">&quot;[markdown]&quot;</span>:&#123;<br>    <span class="hljs-string">&quot;editor.quickSuggestions&quot;</span>: <span class="hljs-literal">true</span><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>vscode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vscode</tag>
       
     </tags>
     
@@ -220,9 +220,9 @@
     
     <tags>
       
-      <tag>HooK</tag>
-      
       <tag>React</tag>
+      
+      <tag>HooK</tag>
       
     </tags>
     
