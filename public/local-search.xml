@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title></title>
+    <title>React Hooks 之 useEffect</title>
     <link href="/posts/0/"/>
     <url>/posts/0/</url>
     
-    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://github.com/ascoders/weekly/blob/v2/096.%E7%B2%BE%E8%AF%BB%E3%80%8AuseEffect%20%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E3%80%8B.md">精读《useEffect 完全指南》</a></li><li><a href="https://juejin.cn/post/6844904090032406536#heading-5">写React Hooks前必读</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://overreacted.io/a-complete-guide-to-useeffect/">a-complete-guide-to-useeffect</a></li><li><a href="https://github.com/ascoders/weekly/blob/v2/096.%E7%B2%BE%E8%AF%BB%E3%80%8AuseEffect%20%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E3%80%8B.md">精读《useEffect 完全指南》</a></li><li><a href="https://juejin.cn/post/6844904090032406536#heading-5">写React Hooks前必读</a></li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>React Hook</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>useEffect</tag>
+      
+    </tags>
     
   </entry>
   
