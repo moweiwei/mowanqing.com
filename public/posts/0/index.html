@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-04-07-1.png">
 <meta property="article:published_time" content="2022-04-07T14:04:17.000Z">
-<meta property="article:modified_time" content="2022-04-14T09:54:06.503Z">
+<meta property="article:modified_time" content="2022-04-14T09:56:24.526Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="useEffect">
 <meta name="twitter:card" content="summary_large_image">
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      94 分钟
+      95 分钟
     </span>
   
 
@@ -367,6 +367,7 @@
 <ul>
 <li>3、更好的方式可能是把他抽成自定义 Hook，把 fetchData 放在 effect 里。</li>
 </ul>
+<p>useEffect 只是底层 API，未来业务接触到的是更多封装后的上层 API，比如 useFetch 或者 useTheme，它们会更好用。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React, &#123; useState, useEffect, useReducer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><br><span class="hljs-keyword">const</span> GITHUB_API = <span class="hljs-string">&#x27;https://api.github.com/repos/chanshiyucx/blog/issues?page=10&amp;per_page=&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; &#123;<br>  <span class="hljs-keyword">const</span> [list, setList] = useState([])<br>  <span class="hljs-keyword">const</span> [page, setPage] = useState(<span class="hljs-number">1</span>)<br><br>  <span class="hljs-keyword">const</span> &#123; data, doFetch &#125; = useDataApi(<span class="hljs-string">`<span class="hljs-subst">$&#123;GITHUB_API&#125;</span><span class="hljs-subst">$&#123;page&#125;</span>`</span>, [])<br>  <span class="hljs-comment">// 翻页时重新获取列表</span><br>  useEffect(<span class="hljs-function">() =&gt;</span> doFetch(<span class="hljs-string">`<span class="hljs-subst">$&#123;GITHUB_API&#125;</span><span class="hljs-subst">$&#123;page&#125;</span>`</span>), [page])<br>  useEffect(<span class="hljs-function">() =&gt;</span> setList(data), [data])<br><br>  <span class="hljs-keyword">const</span> handleNextPage = <span class="hljs-function">() =&gt;</span> setPage(page + <span class="hljs-number">1</span>)<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;handleNextPage&#125;</span>&gt;</span>NextPage<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="xml">        &#123;list.map(o =&gt; (</span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;o.id&#125;</span>&gt;</span>&#123;o.title&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="xml">        ))&#125;</span><br><span class="xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="xml"></span><br><span class="xml">      &#123;isError &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Something went wrong ...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>&#125;</span><br><span class="xml">      &#123;isLoading &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Loading ...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>&#125;</span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  )<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>reducer: </p>
