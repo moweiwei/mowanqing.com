@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-16-1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-04-15T03:05:54.663Z">
+<meta property="article:modified_time" content="2022-04-15T04:03:54.533Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.8k 字
+      11k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      83 分钟
+      93 分钟
     </span>
   
 
@@ -306,9 +306,29 @@
 <p>确保了 this.props 在构造函数执行完毕之前已被赋值。</p>
 <p>4、eventloop</p>
 <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>1、介绍一下react diff 的工作原理？(待补充)</p>
-<blockquote>
-<p>React在界面刷新（setState）时，并不会马上对所有的DOM节点进行操作，而是先通过diff算法计算后，再对有变化的DOM节点进行操作（native是对原生UI层进行操作），刷新步骤如下：</p>
-</blockquote>
+<ul>
+<li><p>react 状态变化渲染页面时，不会马上对DOM节点进行操作，是先通过diff算法计算后，再对有变化的DOM节点进行操作。</p>
+</li>
+<li><p>diff算法就是更高效地通过对比新旧Virtual DOM来找出真正的Dom变化之处.</p>
+</li>
+<li><p>react中diff算法主要遵循三个层级的策略:tree层级、conponent 层级、element 层级</p>
+</li>
+<li><p>tree层级: DOM节点跨层级的操作不做优化，只会对相同层级的节点进行比较.只有删除、创建操作.新树中，R节点下没有了A，那么直接删除A，在D节点下创建A以及下属节点。</p>
+</li>
+<li><p>conponent层级:是同一个组件，则会继续往下diff运算，如果不是一个类的组件，那么直接删除这个组件下的所有子节点，创建新的</p>
+</li>
+<li><p>element层级:对于比较同一层级的节点们，每个节点在对应的层级用唯一的key作为标识.</p>
+<ul>
+<li>3 种节点操作，分别为 INSERT_MARKUP(插入)、MOVE_EXISTING (移动)和 REMOVE_NODE (删除)</li>
+<li>通过key可以准确地发现新旧集合中的节点都是相同的节点，因此无需进行节点删除和创建，只需要将旧集合中节点的位置进行移动，更新为新集合中节点的位置</li>
+<li>如果当前节点在新集合中的位置比老集合中的位置靠前的话，是不会影响后续节点操作的，这里这时候被动字节不用动</li>
+<li>当ABCD节点比较完成后，diff过程还没完，还会整体遍历老集合中节点，看有没有没用到的节点，有的话，就删除</li>
+</ul>
+</li>
+</ul>
+<p>由于dom节点的移动操作开销是比较昂贵的，没有key的情况下要比有key的性能更好</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML">1.加key<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;4&#x27;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;6&#x27;</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br>操作：节点2移动至下标为2的位置，新增节点6至下标为4的位置，删除节点4。<br><br>2.不加key<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br>操作：修改第1个到第5个节点的innerText<br></code></pre></div></td></tr></table></figure>
+
 <p>Virtual DOM 工作过程有：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs">1. state 变化，生成新的 Virtual Dom
 2. 比较 Virtual Dom 与之前 Virtual Dom 的异同
