@@ -4,7 +4,7 @@ abbrlink: '0'
 date: 2022-04-07 22:04:17
 title: React Hooks 之 useEffect
 tags: useEffect
-categories: React Hook
+categories: [React Hook, React]
 ---
 
 Function Component 是更彻底的状态驱动抽象。要彻底理解 Hooks 需要忘掉 Class Component 生命周期,理解 FC 的思维方式。
@@ -26,7 +26,7 @@ function Counter() {
 }
 ```
 
-` <p>You clicked {count} times</p>` 该行中的 count 如何理解？
+`<p>You clicked {count} times</p>` 该行中的 count 如何理解？
 
 第一感觉是 count 是会“监听”状态变化自动更新。它不是 data binding、watcher、proxy。
 
@@ -348,7 +348,7 @@ React会保证 dispatc 在组件的声明周期内保持不变。
 
 但假如我们需要依赖props去计算下一个状态呢。
 
-`<Counter step={1} /> `，此时如何避免依赖 props.step 呢？
+`<Counter step={1} />`，此时如何避免依赖 props.step 呢？
 
 把 reducer 函数放到组件内部去读取 props：
 
@@ -527,7 +527,7 @@ export default () => {
 }
 ```
 
-reducer: 
+reducer:
 
 ```jsx
 const dataFetchReducer = (state, action) => {
@@ -600,6 +600,7 @@ const useDataApi = (initialUrl, initialData) => {
   return { ...state, doFetch }
 }
 ```
+
 ## 参考资料
 
 - [a-complete-guide-to-useeffect](https://overreacted.io/a-complete-guide-to-useeffect/)
