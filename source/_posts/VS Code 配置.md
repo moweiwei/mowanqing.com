@@ -1,5 +1,5 @@
 ---
-title: VS Code Nice 配置
+title: VS Code 配置
 index_img: /img/2022-02-06-1.png
 abbrlink: 1ad5be0d
 date: 2022-02-06 23:30:46
