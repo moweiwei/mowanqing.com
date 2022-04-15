@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>http://mowanqing.com/tags/React/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://mowanqing.com/tags/HooK/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -150,13 +157,6 @@
   
   <url>
     <loc>http://mowanqing.com/tags/Vue3/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://mowanqing.com/tags/React/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
