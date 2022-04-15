@@ -14,14 +14,14 @@ categories: vscode
 在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释
 
 ```js
-	"Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	},
+ "Print to console": {
+  "prefix": "log",
+  "body": [
+   "console.log('$1');",
+   "$2"
+  ],
+  "description": "Log output to console"
+ },
 ```
 
 ## markdown 代码段快捷输入
@@ -29,24 +29,24 @@ categories: vscode
 同上 在 markdown.json 中继续配置如下
 
 ```js
-	"Print to ```js": {
-		"prefix": "```js",
-		"body": [
-			"```js",
-			"$1",
-			"```",
-		],
-		"description": "js代码片段"
-	},
-	"Print to ```jsx": {
-		"prefix": "```jsx",
-		"body": [
-			"```jsx",
-			"$1",
-			"```",
-		],
-		"description": "jsx代码片段"
-	},
+ "Print to ```js": {
+  "prefix": "```js",
+  "body": [
+   "```js",
+   "$1",
+   "```",
+  ],
+  "description": "js代码片段"
+ },
+ "Print to ```jsx": {
+  "prefix": "```jsx",
+  "body": [
+   "```jsx",
+   "$1",
+   "```",
+  ],
+  "description": "jsx代码片段"
+ },
 ```
 
 配置添加后，markdown 中输入 ```js 并没有快捷提示 还需要在 setting.json 中添加如下配置
