@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-16-1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-04-15T09:45:24.684Z">
+<meta property="article:modified_time" content="2022-04-15T09:49:22.639Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,15 +316,11 @@
 <p>任务队列：先进先出</p>
 <p>顺序：同步任务 =》微任务 =》 宏任务</p>
 <ul>
-<li><p>执行栈在执行完同步任务后，查看执行栈是否为空</p>
-</li>
-<li><p>如果执行栈为空，就会去检查微任务(microTask)队列, 执行完微任务，再执行宏任务</p>
-</li>
-<li><p>每个宏任务执行完后，都会再检查微任务队列是否为空，不为空，就按先进先出执行完微任务，设置微任务为 null，再执行宏任务。</p>
-</li>
-<li><p>Node 中 event loop(待补充)</p>
-</li>
+<li>执行栈在执行完同步任务后，查看执行栈是否为空</li>
+<li>如果执行栈为空，就会去检查微任务(microTask)队列, 执行完微任务，再执行宏任务</li>
+<li>每个宏任务执行完后，都会再检查微任务队列是否为空，不为空，就按先进先出执行完微任务，设置微任务为 null，再执行宏任务。</li>
 </ul>
+<p>Node 中 event loop(待补充)</p>
 <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>1、介绍一下react diff 算法 的工作原理？</p>
 <ul>
 <li><p>react 状态变化渲染页面时，不会马上对DOM节点进行操作，是先通过diff算法计算后，再对有变化的DOM节点进行操作。</p>
