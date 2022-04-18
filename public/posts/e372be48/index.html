@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.6k 字
+      3.5k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30 分钟
+      29 分钟
     </span>
   
 
@@ -249,10 +249,31 @@
 <p>React 是虚拟 DOM 方案，用 JS 对象描述 DOM 树，这个对象就像数据和实际 DOM 的一个缓存层，通过管理这个对象的变化，来减少对实际 DOM 的操作。</p>
 <p>描述实际 DOM 的虚拟 DOM 对象如下：</p>
 <p>DOM:</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>Item2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>虚拟 DOM：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br>&#123;<br>  <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,<br>  <span class="hljs-attr">attrs</span>: &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;app&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">children</span>: [<br>    &#123;<br>      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;p&quot;</span>,<br>      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,<br>      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item1&quot;</span>]<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,<br>      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,<br>      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item2&quot;</span>]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js">
+&#123;
+  <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,
+  <span class="hljs-attr">attrs</span>: &#123;
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;app&quot;</span>
+  &#125;,
+  <span class="hljs-attr">children</span>: [
+    &#123;
+      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;p&quot;</span>,
+      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,
+      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item1&quot;</span>]
+    &#125;,
+    &#123;
+      <span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;div&quot;</span>,
+      <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">&quot;item&quot;</span> &#125;,
+      <span class="hljs-attr">children</span>: [<span class="hljs-string">&quot;Item2&quot;</span>]
+    &#125;
+  ]
+&#125;</code></pre></div>
 
 <p>数据变化的时候生成一个新的虚拟 DOM 数据，对比之前的虚拟 DOM 进行 diff 计算，算出要修改的 DOM，再对页面进行操作。</p>
 <p>通知页面更新的方式不同：</p>
@@ -279,12 +300,18 @@
 </ul>
 <h2 id="Vue3-的新特性"><a href="#Vue3-的新特性" class="headerlink" title="Vue3 的新特性"></a>Vue3 的新特性</h2><h3 id="响应式系统"><a href="#响应式系统" class="headerlink" title="响应式系统"></a>响应式系统</h3><p>Vue 2 的响应式机制是基于 Object.defineProperty() 这个 API 实现的.Vue3 是基于 proxy。两者区别是 defineProperty 是拦截具体某个属性， Proxy 是全部拦截，是代理。</p>
 <p>defineProperty 示例如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.defineProperty(obj, <span class="hljs-string">&quot;title&quot;</span>, &#123;<br>  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;&#125;,<br>  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span> &#123;&#125;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.defineProperty(obj, <span class="hljs-string">&quot;title&quot;</span>, &#123;
+  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;&#125;,
+  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span> &#123;&#125;
+&#125;);</code></pre></div>
 
 <p>当读取 obj.title 和修改 obj.title 的时候被 defineProperty 拦截，但 defineProperty 对不存在的属性无法拦截，所以 Vue 2 中所有数据必须要在 data 里声明。</p>
 <p>但是，Vue 不能检测到对象属性的添加或删除。因为 Vue 在初始化实例时将属性转为 getter/setter，所以属性必须在 data 对象上才能让 Vue 转换它，才能让它是响应的。需要额外的 $set。</p>
 <p>Proxy API 是真正的代理，示例如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, &#123;<br>  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;&#125;,<br>  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span> &#123;&#125;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, &#123;
+  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;&#125;,
+  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span> &#123;&#125;
+&#125;);</code></pre></div>
 
 <p>Proxy 拦截 obj 这个数据，不关心 obj 里面属性，统一拦截。</p>
 <h3 id="自定义渲染器"><a href="#自定义渲染器" class="headerlink" title="自定义渲染器"></a>自定义渲染器</h3><p>vue2 内部所有模块是揉在一起，导致不好扩展。vue3 采用 monorepo 方式进行拆包，响应式、编译和运行时全部独立。独立出来的响应式，甚至可以在 react、node 中使用。</p>
@@ -292,7 +319,21 @@
 <p>渲染逻辑拆成 <strong>平台无关渲染逻辑</strong> 和 <strong>浏览器渲染 API</strong>。</p>
 <h3 id="全部模块使用-TS-重构"><a href="#全部模块使用-TS-重构" class="headerlink" title="全部模块使用 TS 重构"></a>全部模块使用 TS 重构</h3><p>Vue2 使用 Flow.js 做类型检测；Flow.js 已被抛弃，vue3 选择 TS。</p>
 <h3 id="Composition-API-组合语法"><a href="#Composition-API-组合语法" class="headerlink" title="Composition API 组合语法"></a>Composition API 组合语法</h3><p>vue2 中示例：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> App = &#123;<br>  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">1</span> &#125;;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-built_in">this</span>.count++;<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">computed</span>: &#123;<br>    <span class="hljs-function"><span class="hljs-title">double</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.count * <span class="hljs-number">2</span>;<br>    &#125;<br>  &#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> App = &#123;
+  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;
+    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">1</span> &#125;;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params"></span>)</span> &#123;
+      <span class="hljs-built_in">this</span>.count++;
+    &#125;
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-function"><span class="hljs-title">double</span>(<span class="hljs-params"></span>)</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.count * <span class="hljs-number">2</span>;
+    &#125;
+  &#125;
+&#125;;</code></pre></div>
 
 <p>vue2 中 Options API 存在以下问题：</p>
 <ul>
@@ -301,7 +342,17 @@
 <li>代码不好复用，vue2 的组件很难抽离通用逻辑，只能使用 mixin，还会导致命名冲突问题。</li>
 </ul>
 <p>vue3 中采用新增的 setup 写法：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; reactive, computed &#125; = Vue;<br><span class="hljs-keyword">let</span> App = &#123;<br>  <span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> state = reactive(&#123; <span class="hljs-attr">count</span>: <span class="hljs-number">1</span> &#125;);<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params"></span>) </span>&#123;<br>      state.count++;<br>    &#125;<br>    <span class="hljs-keyword">const</span> double = computed(<span class="hljs-function">() =&gt;</span> state.count * <span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">return</span> &#123; state, add, double &#125;;<br>  &#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; reactive, computed &#125; = Vue;
+<span class="hljs-keyword">let</span> App = &#123;
+  <span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params"></span>)</span> &#123;
+    <span class="hljs-keyword">const</span> state = reactive(&#123; <span class="hljs-attr">count</span>: <span class="hljs-number">1</span> &#125;);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params"></span>) </span>&#123;
+      state.count++;
+    &#125;
+    <span class="hljs-keyword">const</span> double = computed(<span class="hljs-function">() =&gt;</span> state.count * <span class="hljs-number">2</span>);
+    <span class="hljs-keyword">return</span> &#123; state, add, double &#125;;
+  &#125;
+&#125;;</code></pre></div>
 
 <p>Composition API 好处如下：</p>
 <ul>

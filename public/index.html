@@ -197,6 +197,61 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/posts/b3515e96/" target="_self">
+          <img src="/img/2022-04-18-1.png" srcset="/img/loading.gif" lazyload alt="React Hooks 之 useCallback">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/posts/b3515e96/" target="_self">
+          React Hooks 之 useCallback
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/posts/b3515e96/" target="_self">
+          
+          类组件，父组件传方法给子组件父组件： class Parent extends Component &amp;#123;   constructor(props) &amp;#123;     super(props);     this.state &#x3D; &amp;#123;       count: 0     &amp;#125;;   &amp;#125;    handleChildren() &amp;#123;     consol
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-18 10:44" pubdate>
+              2022-04-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/React-Hook/">React Hook</a>
+            
+              <a href="/categories/React/">React</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/useCallback/">useCallback</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/posts/0/" target="_self">
           <img src="/img/2022-04-07-1.png" srcset="/img/loading.gif" lazyload alt="React Hooks 之 useEffect">
         </a>
@@ -213,7 +268,7 @@
       <p class="index-excerpt">
         <a href="/posts/0/" target="_self">
           
-          Function Component 是更彻底的状态驱动抽象。要彻底理解 Hooks 需要忘掉 Class Component 生命周期,理解 FC 的思维方式。 每次渲染都有他自己的 props 和 state123456789101112function Counter() &amp;#123;  const [count, setCount] &#x3D; useState(0);  return (
+          Function Component 是更彻底的状态驱动抽象。要彻底理解 Hooks 需要忘掉 Class Component 生命周期,理解 FC 的思维方式。 每次渲染都有他自己的 props 和 statefunction Counter() &amp;#123;   const [count, setCount] &#x3D; useState(0);    return (     &lt;div&gt;
         </a>
       </p>
 
@@ -232,7 +287,7 @@
             
               <a href="/categories/React-Hook/">React Hook</a>
             
-              <a href="/categories/React-Hook/React/">React</a>
+              <a href="/categories/React/">React</a>
             
           </div>
         
@@ -268,7 +323,7 @@
       <p class="index-excerpt">
         <a href="/posts/25e26362/" target="_self">
           
-          函数组件注解1const Test &#x3D; React.FC&lt;Props&gt;  类组件注解1class Test extends React.Component&lt;Props,States&gt;  泛型 class 组件123456789interface SelectProps&lt;T&gt; &amp;#123;  items: T[]&amp;#125;class Select&lt;T&amp;gt
+          函数组件注解const Test &#x3D; React.FC&lt;Props&gt;  类组件注解class Test extends React.Component&lt;Props,States&gt;  泛型 class 组件interface SelectProps&lt;T&gt; &amp;#123;   items: T[] &amp;#125;  class Select&lt;T&gt; exten
         </a>
       </p>
 
@@ -321,7 +376,7 @@
       <p class="index-excerpt">
         <a href="/posts/81dvefb9/" target="_self">
           
-          声明空间ts 中有两种：类型声明空间与变量声明空间 类型声明空间： 123class Foo &amp;#123;&amp;#125;interface Bar &amp;#123;&amp;#125;type Bas &#x3D; &amp;#123;&amp;#125;;  如下当做类型注解使用 123let foo: Foo;let bar: Bar;let bas: Bas;  定义 interface Bar {} 不能当做变量来用，因为它没有
+          声明空间ts 中有两种：类型声明空间与变量声明空间 类型声明空间： class Foo &amp;#123;&amp;#125; interface Bar &amp;#123;&amp;#125; type Bas &#x3D; &amp;#123;&amp;#125;;  如下当做类型注解使用 let foo: Foo; let bar: Bar; let bas: Bas;  定义 interface Bar {} 不能当做变量来用，因为它没有定义
         </a>
       </p>
 
@@ -427,7 +482,7 @@
       <p class="index-excerpt">
         <a href="/posts/1ad5be0d/" target="_self">
           
-          console.log 快捷输入打开 文件 --&gt; 首选项 --&gt; 用户片段 在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释 12345678&quot;Print to console&quot;: &amp;#123; &quot;prefix&quot;: &quot;log&quot;, &quot;body&quot;:
+          console.log 快捷输入打开 文件 --&gt; 首选项 --&gt; 用户片段 在输入框中输入markdown，可以找到markdown.json的代码片段配置 放开 example 注释 &quot;Print to console&quot;: &amp;#123;  &quot;prefix&quot;: &quot;log&quot;,  &quot;body&quot;: [   &amp;q
         </a>
       </p>
 
@@ -533,7 +588,7 @@
       <p class="index-excerpt">
         <a href="/posts/d177e434/" target="_self">
           
-          一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变1234let array &#x3D; [1, 2, 3, 4, 5];let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2);console.log(array); &#x2F;&#x2F; [1,2,3,4,5]console.log(newArray); &#x2F;&#x2F;[2, 4, 6, 8, 1
+          一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变let array &#x3D; [1, 2, 3, 4, 5]; let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2); console.log(array); &#x2F;&#x2F; [1,2,3,4,5] console.log(newArray); &#x2F;&#x2F;[2, 4, 6, 8, 10
         </a>
       </p>
 
@@ -586,7 +641,7 @@
       <p class="index-excerpt">
         <a href="/posts/ee7a9294/" target="_self">
           
-          解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numb
+          解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;  export function useScreenWidth(): number &amp;#123;   const [width, s
         </a>
       </p>
 
@@ -639,7 +694,7 @@
       <p class="index-excerpt">
         <a href="/posts/b195fb80/" target="_self">
           
-          useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 12345const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;);setState((prevState) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 也可以使用 Ob
+          useState 函数式更新与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。 const [state, setState] &#x3D; useState(&amp;#123;&amp;#125;); setState((prevState) &#x3D;&gt; &amp;#123;   &#x2F;&#x2F; 也可以使用 Objec
         </a>
       </p>
 
@@ -663,61 +718,6 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/HooK/">HooK</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/posts/bb88c12/" target="_self">
-          <img src="/img/2022-01-13-1.png" srcset="/img/loading.gif" lazyload alt="使用 useRef 跨生命周期保存变量">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/posts/bb88c12/" target="_self">
-          使用 useRef 跨生命周期保存变量
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/posts/bb88c12/" target="_self">
-          
-          ref 这一种访问 DOM 的主要方式。然而，useRef() 比 ref 属性更有用。它可以很方便地保存任何可变值，其类似于在 class 中使用实例字段的方式. 当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用回调 ref 来实现。 场景 1：只在
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-13 15:23" pubdate>
-              2022-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/React/">React</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/React/">React</a>
             
               <a href="/tags/HooK/">HooK</a>
             

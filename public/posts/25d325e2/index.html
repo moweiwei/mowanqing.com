@@ -16,12 +16,12 @@
   <meta name="author" content="Moweiwei">
   <meta name="keywords" content="博客 mowanqing">
   
-    <meta name="description" content="构建镜像 1docker build -t user-manage:v1.0 .  运行容器镜像 1234567docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~&#x2F;gitlab&#x2F;k8s-installer-ui&#x2F;dist:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html -v ~&#x2F;default.conf:&#x2F;etc&#x2F;nginx&#x2F;con">
+    <meta name="description" content="构建镜像 docker build -t user-manage:v1.0 .  运行容器镜像 docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~&#x2F;gitlab&#x2F;k8s-installer-ui&#x2F;dist:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html -v ~&#x2F;default.conf:&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;defa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常使用的容器镜像操作命令">
 <meta property="og:url" content="http://mowanqing.com/posts/25d325e2/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="构建镜像 1docker build -t user-manage:v1.0 .  运行容器镜像 1234567docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~&#x2F;gitlab&#x2F;k8s-installer-ui&#x2F;dist:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html -v ~&#x2F;default.conf:&#x2F;etc&#x2F;nginx&#x2F;con">
+<meta property="og:description" content="构建镜像 docker build -t user-manage:v1.0 .  运行容器镜像 docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~&#x2F;gitlab&#x2F;k8s-installer-ui&#x2F;dist:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html -v ~&#x2F;default.conf:&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;defa">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2021-12-01-1.png">
 <meta property="article:published_time" content="2021-12-01T02:25:42.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      742 字
+      723 字
     </span>
   
 
@@ -246,31 +246,41 @@
             
             <div class="markdown-body">
               <p>构建镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker build -t user-manage:v1.0 .<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker build -t user-manage:v1.0 .</code></pre></div>
 
 <p>运行容器镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~/gitlab/k8s-installer-ui/dist:/usr/share/nginx/html -v ~/default.conf:/etc/nginx/conf.d/default.conf nginx<br><br><span class="hljs-comment"># --rm container 停止后删除 container</span><br><span class="hljs-comment"># -d 后台运行容器</span><br><span class="hljs-comment"># -p 80:80 前者本地端口，后者是 dockerfile 暴露端口</span><br><span class="hljs-comment"># --name 指定容器名称</span><br><span class="hljs-comment"># -v 挂载替换容器内指定文件</span><br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~/gitlab/k8s-installer-ui/dist:/usr/share/nginx/html -v ~/default.conf:/etc/nginx/conf.d/default.conf nginx
+
+<span class="hljs-comment"># --rm container 停止后删除 container</span>
+<span class="hljs-comment"># -d 后台运行容器</span>
+<span class="hljs-comment"># -p 80:80 前者本地端口，后者是 dockerfile 暴露端口</span>
+<span class="hljs-comment"># --name 指定容器名称</span>
+<span class="hljs-comment"># -v 挂载替换容器内指定文件</span></code></pre></div>
 
 <p>将镜像打成 tar 包</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker save user-manage:latest &gt; ~/Downloads/usermanage.tar<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker save user-manage:latest &gt; ~/Downloads/usermanage.tar</code></pre></div>
 
 <p>上传 tar 包到指定服务器</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">scp ~/Downloads/usermanage.tar root@172.16.60.99:/tmp/<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">scp ~/Downloads/usermanage.tar root@172.16.60.99:/tmp/</code></pre></div>
 
 <p>从服务器下载 tar 包到本地</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">scp -r caas-aio:~/tmp/origin-web-console.tar ~/Downloads/<span class="hljs-built_in">test</span>/<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">scp -r caas-aio:~/tmp/origin-web-console.tar ~/Downloads/<span class="hljs-built_in">test</span>/</code></pre></div>
 
 <p>从 tar 包加载镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker load &lt; /tmp/usermanage.tar<br><span class="hljs-comment"># 可以查看到</span><br>docker images <br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker load &lt; /tmp/usermanage.tar
+<span class="hljs-comment"># 可以查看到</span>
+docker images</code></pre></div>
 
 <p>给镜像重新打 tag</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker tag user-manage:latest docker.io/user-manage:latest<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker tag user-manage:latest docker.io/user-manage:latest</code></pre></div>
 
 <p>进入容器内部</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 镜像 id</span><br>docker <span class="hljs-built_in">exec</span> -it 73bee1a2a355 /bin/bash<br><span class="hljs-comment"># 或者 /bin/sh</span><br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 镜像 id</span>
+docker <span class="hljs-built_in">exec</span> -it 73bee1a2a355 /bin/bash
+<span class="hljs-comment"># 或者 /bin/sh</span></code></pre></div>
 
 <p>查看镜像元数据，常用来查看 commit-id</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">docker inspect &lt;image-id&gt;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">docker inspect &lt;image-id&gt;</code></pre></div>
 
 
             </div>

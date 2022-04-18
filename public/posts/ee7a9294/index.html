@@ -16,12 +16,12 @@
   <meta name="author" content="Moweiwei">
   <meta name="keywords" content="博客 mowanqing">
   
-    <meta name="description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numb">
+    <meta name="description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;  export function useScreenWidth(): number &amp;#123;   const [width, s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在 class 组件中使用 hooks">
 <meta property="og:url" content="http://mowanqing.com/posts/ee7a9294/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： 12345678910111213141516171819import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;export function useScreenWidth(): numb">
+<meta property="og:description" content="解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;  export function useScreenWidth(): number &amp;#123;   const [width, s">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-01-14-2.png">
 <meta property="article:published_time" content="2022-01-14T03:03:28.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      2.1k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19 分钟
+      18 分钟
     </span>
   
 
@@ -247,19 +247,79 @@
             <div class="markdown-body">
               <p>解决办法</p>
 <p>以一个简单的 <code>useScreenWidthhook</code> 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useScreenWidth</span>(<span class="hljs-params"></span>): <span class="hljs-title">number</span> </span>&#123;<br>  <span class="hljs-keyword">const</span> [width, setWidth] = useState(<span class="hljs-built_in">window</span>.innerWidth);<br><br>  useEffect(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> handler = <span class="hljs-function">(<span class="hljs-params">event: any</span>) =&gt;</span> &#123;<br>      setWidth(event.target.innerWidth);<br>    &#125;;<br>    <span class="hljs-comment">// 监听浏览器窗口变化</span><br>    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    <span class="hljs-comment">// 组件unmount时要解除监听</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);<br>    &#125;;<br>  &#125;, []);<br><br>  <span class="hljs-keyword">return</span> width;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useScreenWidth</span>(<span class="hljs-params"></span>): <span class="hljs-title">number</span> </span>&#123;
+  <span class="hljs-keyword">const</span> [width, setWidth] = useState(<span class="hljs-built_in">window</span>.innerWidth);
+
+  useEffect(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-keyword">const</span> handler = <span class="hljs-function">(<span class="hljs-params">event: any</span>) =&gt;</span> &#123;
+      setWidth(event.target.innerWidth);
+    &#125;;
+    <span class="hljs-comment">// 监听浏览器窗口变化</span>
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);
+    <span class="hljs-comment">// 组件unmount时要解除监听</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;
+      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;resize&quot;</span>, handler);
+    &#125;;
+  &#125;, []);
+
+  <span class="hljs-keyword">return</span> width;
+&#125;</code></pre></div>
 
 <h2 id="方法-1：将-Hook-包装成-HOC"><a href="#方法-1：将-Hook-包装成-HOC" class="headerlink" title="方法 1：将 Hook 包装成 HOC"></a>方法 1：将 Hook 包装成 HOC</h2><p>HOC 是 React 中复用组件的高级用法，它的本质是一个函数，它的输入参数是一个组件，返回相同的组件以及一些额外的 props。在我们的例子里，可以让 hook 函数作为 props 传递到目标组件中:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> withHooksHOC = <span class="hljs-function">(<span class="hljs-params">Component: any</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">props: any</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> screenWidth = useScreenWidth();<br><br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#123;screenWidth&#125;</span> &#123;<span class="hljs-attr">...props</span>&#125; /&gt;</span></span>;<br>  &#125;;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> withHooksHOC = <span class="hljs-function">(<span class="hljs-params">Component: any</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">props: any</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">const</span> screenWidth = useScreenWidth();
+
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&#123;screenWidth&#125;</span> &#123;<span class="hljs-attr">...props</span>&#125; /&gt;</span></span>;
+  &#125;;
+&#125;;</code></pre></div>
 
 <p>将我们的目标组件用上述的 withHooksHOC 包装起来</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; withHooksHOC &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./withHooksHOC&quot;</span>;<br><br>interface IHooksHOCProps &#123;<br>  <span class="hljs-attr">width</span>: number;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksHOC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>&lt;<span class="hljs-title">IHooksHOCProps</span>&gt; </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>width: &#123;this.props.width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> withHooksHOC(HooksHOC);<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> &#123; withHooksHOC &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./withHooksHOC&quot;</span>;
+
+interface IHooksHOCProps &#123;
+  <span class="hljs-attr">width</span>: number;
+&#125;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksHOC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>&lt;<span class="hljs-title">IHooksHOCProps</span>&gt; </span>&#123;
+  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>width: &#123;this.props.width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;
+  &#125;
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> withHooksHOC(HooksHOC);</code></pre></div>
 
 <h2 id="方法-2：将-Hook-包装成函数组件"><a href="#方法-2：将-Hook-包装成函数组件" class="headerlink" title="方法 2：将 Hook 包装成函数组件"></a>方法 2：将 Hook 包装成函数组件</h2><p>将 hook 变成函数组件，它接收一个参数为 width 的 children 函数，然后将 width 作为 render prop 传递：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; FunctionComponent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;<br><br>type ScreenWidthChildren = <span class="hljs-function">(<span class="hljs-params">screenWidth: number</span>) =&gt;</span> React.ReactNode;<br><br>interface IScreenWidthProps &#123;<br>  <span class="hljs-attr">children</span>: ScreenWidthChildren;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ScreenWidth: FunctionComponent&lt;IScreenWidthProps&gt; = <span class="hljs-function">(<span class="hljs-params">&#123; children &#125;</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> screenWidth: number = useScreenWidth();<br><br>  <span class="hljs-keyword">return</span> children(screenWidth);<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; FunctionComponent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> &#123; useScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../hooks/useScreenWidth&quot;</span>;
+
+type ScreenWidthChildren = <span class="hljs-function">(<span class="hljs-params">screenWidth: number</span>) =&gt;</span> React.ReactNode;
+
+interface IScreenWidthProps &#123;
+  <span class="hljs-attr">children</span>: ScreenWidthChildren;
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ScreenWidth: FunctionComponent&lt;IScreenWidthProps&gt; = <span class="hljs-function">(<span class="hljs-params">&#123; children &#125;</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">const</span> screenWidth: number = useScreenWidth();
+
+  <span class="hljs-keyword">return</span> children(screenWidth);
+&#125;;</code></pre></div>
 
 <p>使用：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; ScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./ScreenWidth&quot;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksRenderProps</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenWidth</span>&gt;</span>&#123;(width) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;</span> <span class="hljs-attr">fontSize:</span> &quot;<span class="hljs-attr">48px</span>&quot; &#125;&#125;&gt;</span>width: &#123;width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">ScreenWidth</span>&gt;</span></span>;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">import</span> &#123; ScreenWidth &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./ScreenWidth&quot;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HooksRenderProps</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;
+  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenWidth</span>&gt;</span>&#123;(width) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;</span> <span class="hljs-attr">fontSize:</span> &quot;<span class="hljs-attr">48px</span>&quot; &#125;&#125;&gt;</span>width: &#123;width&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">ScreenWidth</span>&gt;</span></span>;
+  &#125;
+&#125;</code></pre></div>
 
             </div>
             <hr>

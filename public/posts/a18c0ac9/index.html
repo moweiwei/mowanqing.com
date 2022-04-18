@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      101 分钟
+      100 分钟
     </span>
   
 
@@ -266,7 +266,14 @@
 <li>react hooks 中的 闭包陷阱问题如何解决？</li>
 </ul>
 <p>不管在这个组件中的其他地方使用 setCount 将 count 设置为任何值，还是设置多少次，打印的都是1</p>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">1</span>);<br>    useEffect(<span class="hljs-function">()=&gt;</span>&#123;<br>        <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>            <span class="hljs-built_in">console</span>.log(count)<br>        &#125;, <span class="hljs-number">1000</span>)<br>    &#125;, [])<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">1</span>);
+    useEffect(<span class="hljs-function">()=&gt;</span>&#123;
+        <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">()=&gt;</span>&#123;
+            <span class="hljs-built_in">console</span>.log(count)
+        &#125;, <span class="hljs-number">1000</span>)
+    &#125;, [])
+&#125;</code></pre></div>
 
 <p>useRef</p>
 <p>useState 更新值时传入回调函数</p>
@@ -300,7 +307,12 @@
 <ul>
 <li>为什么要传入 props？</li>
 </ul>
-<figure class="highlight jsx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.props = props;<br>    <span class="hljs-comment">// ...</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span> </span>&#123;
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;
+    <span class="hljs-built_in">this</span>.props = props;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;</code></pre></div>
 
 <p>确保了 this.props 在构造函数执行完毕之前已被赋值。</p>
 <p>4、eventloop</p>
@@ -343,7 +355,21 @@
 </li>
 </ul>
 <p>由于dom节点的移动操作开销是比较昂贵的，没有key的情况下要比有key的性能更好</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML">1.加key<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;4&#x27;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;6&#x27;</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br>操作：节点2移动至下标为2的位置，新增节点6至下标为4的位置，删除节点4。<br><br>2.不加key<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br>操作：修改第1个到第5个节点的innerText<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs HTML">1.加key
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;1&#x27;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;3&#x27;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;2&#x27;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;4&#x27;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;5&#x27;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#x27;6&#x27;</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+操作：节点2移动至下标为2的位置，新增节点6至下标为4的位置，删除节点4。
+
+2.不加key
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  ========&gt;  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> 
+操作：修改第1个到第5个节点的innerText</code></pre></div>
 
 <p>Virtual DOM 工作过程有：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs">1. state 变化，生成新的 Virtual Dom
@@ -444,10 +470,12 @@
 <li>Vue 不能检测到以下数组的变动:</li>
 </ul>
 <p>1.当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 解决办法</span><br>vm.$set(vm.items, indexOfItem, newValue)<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 解决办法</span>
+vm.$set(vm.items, indexOfItem, newValue)</code></pre></div>
 
 <p>2.当你修改数组的长度时，例如：vm.items.length = newLength</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">/ 解决办法<br>vm.items.splice(newLength)<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js">/ 解决办法
+vm.items.splice(newLength)</code></pre></div>
 
 <ul>
 <li>检测不到的原因是什么？</li>
@@ -478,7 +506,7 @@
 <p>如果发现配置项上有 el 选项，则自动调用 $mount 方法，也就是说有了 el 选项，就不需要再手动调用 $mount 方法，反之，没提供 el 选项则必须调用 $mount</p>
 <p>接下来则进入挂载阶段</p>
 <p>4、beforeCreate 期间能拿到数据吗？</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm">不能，因为数据初始化阶段是在 <span class="hljs-keyword">beforeCreate </span>之后执行<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs mipsasm">不能，因为数据初始化阶段是在 <span class="hljs-keyword">beforeCreate </span>之后执行</code></pre></div>
 
 <p>4、Vue nextTick使用场景及实现原理</p>
 <p>它主要是处理我们再变更完数据以后，无法立刻拿到最新的DOM节点对象的问题。</p>
@@ -547,10 +575,22 @@
 <p>6、父组件可以监听到子组件的生命周期吗？</p>
 <p>比如有父组件 Parent 和子组件 Child，如果父组件监听到子组件挂载 mounted 就做一些逻辑处理。</p>
 <p>方法一：手动通过 $emit 触发父组件的事件</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// Parent.vue</span><br>&lt;Child @mounted=<span class="hljs-string">&quot;doSomething&quot;</span>/&gt;<br>    <br><span class="hljs-comment">// Child.vue</span><br><span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&quot;mounted&quot;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// Parent.vue</span>
+&lt;Child @mounted=<span class="hljs-string">&quot;doSomething&quot;</span>/&gt;
+    
+<span class="hljs-comment">// Child.vue</span>
+<span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;
+  <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&quot;mounted&quot;</span>);
+&#125;</code></pre></div>
 
 <p>方法二：父组件引用子组件时通过 @hook 来监听</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//  Parent.vue</span><br>&lt;Child @hook:mounted=<span class="hljs-string">&quot;doSomething&quot;</span> &gt;&lt;/Child&gt;<br>    <br><span class="hljs-comment">//  Child.vue</span><br><span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span>&#123;<br>   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;子组件触发 mounted 钩子函数 ...&#x27;</span>);<br>&#125;,       <br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//  Parent.vue</span>
+&lt;Child @hook:mounted=<span class="hljs-string">&quot;doSomething&quot;</span> &gt;&lt;/Child&gt;
+    
+<span class="hljs-comment">//  Child.vue</span>
+<span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span>&#123;
+   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;子组件触发 mounted 钩子函数 ...&#x27;</span>);
+&#125;,</code></pre></div>
 
 <p>@hook 方法不仅仅是可以监听 mounted，其它的生命周期事件，例如：created，updated 等都可以监听。</p>
 <p>7、比较 Vue 和 React 两个框架，你觉得有哪些区别？</p>
@@ -565,7 +605,11 @@
 </ul>
 <p>8、什么是异步组件？</p>
 <p>在声明或注册组件时，Vue 接受提供 Promise 的工厂函数。然后可以在调用该组件时对其进行“解析”。</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;<br>    <span class="hljs-attr">components</span>: &#123;<br>        ‘tweet-box’: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(‘./components/<span class="hljs-keyword">async</span>/TweetBox’)<br>    &#125;<br>&#125;); <br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+    <span class="hljs-attr">components</span>: &#123;
+        ‘tweet-box’: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(‘./components/<span class="hljs-keyword">async</span>/TweetBox’)
+    &#125;
+&#125;);</code></pre></div>
 
 <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p>1、HTTP有哪些请求方法？PUT 和 PATCH 有什么区别？</p>
 <ul>
@@ -619,7 +663,50 @@
 </ul>
 <p>3、nginx 如何来实现负载均衡？</p>
 <p>负载均衡的5种策略:</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><br> 1.轮询（默认）<br> 每个请求按时间顺序逐一分配到不同的后端服务器<br><br> upstream backserver &#123;<br>    server 192.168.0.14;<br>    server 192.168.0.15;<br>&#125;<br><br>2.weight<br>指定轮询几率，weight和访问概率成正比<br><br>upstream backserver &#123;<br>    server 192.168.0.14 weight=3;<br>    server 192.168.0.15 weight=7;<br>&#125;<br><br>3.ip_hash<br>已经登录某一个服务器的用户再重新定位到另一个服务器，其登录信息将会丢失，这样显然是不妥的.ip_hash指令解决这个问题，如果客户已经访问了某个服务器，当用户再次访问时，会将该请求通过哈希算法，自动定位到该服务器。<br><br>upstream backserver &#123;<br>    ip_hash;<br>    server 192.168.0.14:88;<br>    server 192.168.0.15:80;<br>&#125;<br><br>4.fair<br>按后端服务器的响应时间来分配请求，响应时间短的优先分配。<br><br>upstream backserver &#123;<br>    server server1;<br>    server server2;<br>    fair;<br>&#125;<br><br>5.url_hash<br>按访问url的<span class="hljs-built_in">hash</span>结果来分配请求，使每个url定向到同一个（对应的）后端服务器，后端服务器为缓存时比较有效。<br><br>upstream backserver &#123;<br>    server squid1:3128;<br>    server squid2:3128;<br>    <span class="hljs-built_in">hash</span> <span class="hljs-variable">$request_uri</span>;<br>    hash_method crc32;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">
+ 1.轮询（默认）
+ 每个请求按时间顺序逐一分配到不同的后端服务器
+
+ upstream backserver &#123;
+    server 192.168.0.14;
+    server 192.168.0.15;
+&#125;
+
+2.weight
+指定轮询几率，weight和访问概率成正比
+
+upstream backserver &#123;
+    server 192.168.0.14 weight=3;
+    server 192.168.0.15 weight=7;
+&#125;
+
+3.ip_hash
+已经登录某一个服务器的用户再重新定位到另一个服务器，其登录信息将会丢失，这样显然是不妥的.ip_hash指令解决这个问题，如果客户已经访问了某个服务器，当用户再次访问时，会将该请求通过哈希算法，自动定位到该服务器。
+
+upstream backserver &#123;
+    ip_hash;
+    server 192.168.0.14:88;
+    server 192.168.0.15:80;
+&#125;
+
+4.fair
+按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+
+upstream backserver &#123;
+    server server1;
+    server server2;
+    fair;
+&#125;
+
+5.url_hash
+按访问url的<span class="hljs-built_in">hash</span>结果来分配请求，使每个url定向到同一个（对应的）后端服务器，后端服务器为缓存时比较有效。
+
+upstream backserver &#123;
+    server squid1:3128;
+    server squid2:3128;
+    <span class="hljs-built_in">hash</span> <span class="hljs-variable">$request_uri</span>;
+    hash_method crc32;
+&#125;</code></pre></div>
 
 <h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>1、什么是 Docker？</p>
 <ul>
