@@ -197,6 +197,84 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/posts/e509b107/" target="_self">
+          <img src="/img/index-img.png" srcset="/img/loading.gif" lazyload alt="Antd 源码分析之常用 hooks">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/posts/e509b107/" target="_self">
+          Antd 源码分析之常用 hooks
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/posts/e509b107/" target="_self">
+          
+          usePreviousimport &amp;#123; useEffect, useRef &amp;#125; from &amp;#x27;react&amp;#x27;;  const usePrevious &#x3D; &lt;T&gt;(state: T): T | undefined &#x3D;&gt; &amp;#123;   const ref &#x3D; useRef&lt;T&gt;();    useEffect(() &#x3D;&gt; &amp;#
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-29 01:01" pubdate>
+              2022-04-29
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/posts/f806f23d/" target="_self">
+          <img src="/img/index-img.png" srcset="/img/loading.gif" lazyload alt="Antd 源码分析之 useMountMergeState.md">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/posts/f806f23d/" target="_self">
+          Antd 源码分析之 useMountMergeState.md
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/posts/f806f23d/" target="_self">
+          
+          接上篇 useMergeState, useMountMergeState 是组件挂载后再声明 state。 用法const [list, setList] &#x3D; useMountMergeState&lt;any[] | undefined&gt;(defaultData, &amp;#123;   value: options?.dataSource,   onChange: options?.onDa
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-29 00:51" pubdate>
+              2022-04-29
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/posts/e6886795/" target="_self">
           <img src="/img/index-img.png" srcset="/img/loading.gif" lazyload alt="Antd 源码分析之 useMergedState.md">
         </a>
@@ -213,7 +291,7 @@
       <p class="index-excerpt">
         <a href="/posts/e6886795/" target="_self">
           
-          用法与 useState 类似，区别是 如果 props 提供 value 值，将会用 value 值来初始化 state 状态。 使用方法const [innerChecked, setInnerChecked] &#x3D; useMergedState&lt;boolean&gt;(false, &amp;#123;       value: checked,       defaultValue: defa
+          用法与 useState 类似，区别是 如果 props 提供 value 值，将会用 value 值来初始化 state 状态。 用法const [innerChecked, setInnerChecked] &#x3D; useMergedState&lt;boolean&gt;(false, &amp;#123;       value: checked,       defaultValue: defaul
         </a>
       </p>
 
@@ -600,112 +678,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Vue3/">Vue3</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/posts/d177e434/" target="_self">
-          <img src="/img/2022-01-14-3.png" srcset="/img/loading.gif" lazyload alt="map 到底改不改变原数组">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/posts/d177e434/" target="_self">
-          map 到底改不改变原数组
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/posts/d177e434/" target="_self">
-          
-          一般认为 map 不会对原数组进行修改，但事实并不是如此。 数组内为基础类型数据时,原数组不变let array &#x3D; [1, 2, 3, 4, 5]; let newArray &#x3D; array.map((item) &#x3D;&gt; item * 2); console.log(array); &#x2F;&#x2F; [1,2,3,4,5] console.log(newArray); &#x2F;&#x2F;[2, 4, 6, 8, 10
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-14 13:53" pubdate>
-              2022-01-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS/">JS</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/map/">map</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/posts/ee7a9294/" target="_self">
-          <img src="/img/2022-01-14-2.png" srcset="/img/loading.gif" lazyload alt="如何在 class 组件中使用 hooks">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/posts/ee7a9294/" target="_self">
-          如何在 class 组件中使用 hooks
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/posts/ee7a9294/" target="_self">
-          
-          解决办法 以一个简单的 useScreenWidthhook 函数为例，它的目的是获取全屏的宽度，并且去监听浏览器窗口的变化，更新宽度： import &amp;#123; useEffect, useState &amp;#125; from &quot;react&quot;;  export function useScreenWidth(): number &amp;#123;   const [width, s
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-14 11:03" pubdate>
-              2022-01-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/React/">React</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/HooK/">HooK</a>
             
           </div>
         
