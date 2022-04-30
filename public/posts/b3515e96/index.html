@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-04-18-1.png">
 <meta property="article:published_time" content="2022-04-18T02:44:18.000Z">
-<meta property="article:modified_time" content="2022-04-19T02:34:15.712Z">
+<meta property="article:modified_time" content="2022-04-30T15:51:30.396Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="useCallback">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4k 字
+      4.5k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      34 分钟
+      38 分钟
     </span>
   
 
@@ -407,11 +407,14 @@
   );
 &#125;
 
+<span class="hljs-comment">// useEventCallback 使用了 ref 不变的特性，保证回调函数的引用永远不变。</span>
+<span class="hljs-comment">// 使用 useRef 来保存函数，避免 useCallback 所包裹的函数反复变化.</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useEventCallback</span>(<span class="hljs-params">fn, dependencies</span>) </span>&#123;
   <span class="hljs-keyword">const</span> ref = useRef(<span class="hljs-function">() =&gt;</span> &#123;
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&#x27;Cannot call an event handler while rendering.&#x27;</span>);
   &#125;);
 
+  <span class="hljs-comment">// 根据依赖去更新 ref ，保证最终调用的函数是最新的</span>
   useEffect(<span class="hljs-function">() =&gt;</span> &#123;
     ref.current = fn;
   &#125;, [fn, ...dependencies]);
@@ -422,9 +425,24 @@
   &#125;, [ref]);
 &#125;</code></pre></div>
 
-<h2 id="最后，官方推荐在-context-中向下传递-dispatch-而非在-props-中使用独立的回调"><a href="#最后，官方推荐在-context-中向下传递-dispatch-而非在-props-中使用独立的回调" class="headerlink" title="最后，官方推荐在 context 中向下传递 dispatch 而非在 props 中使用独立的回调"></a>最后，官方推荐在 context 中向下传递 dispatch 而非在 props 中使用独立的回调</h2><ul>
+<h2 id="另一种方式，就是官方推荐在-context-中向下传递-dispatch-而非在-props-中使用独立的回调"><a href="#另一种方式，就是官方推荐在-context-中向下传递-dispatch-而非在-props-中使用独立的回调" class="headerlink" title="另一种方式，就是官方推荐在 context 中向下传递 dispatch 而非在 props 中使用独立的回调"></a>另一种方式，就是官方推荐在 context 中向下传递 dispatch 而非在 props 中使用独立的回调</h2><p>useReducer返回的dispatch永远是不变的</p>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> TodosDispatch = React.createContext(<span class="hljs-literal">null</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TodosApp</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// 提示：`dispatch` 不会在重新渲染之间变化</span>
+  <span class="hljs-keyword">const</span> [todos, dispatch] = useReducer(todosReducer);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TodosDispatch.Provider</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#123;dispatch&#125;</span>&gt;</span></span>
+<span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">DeepTree</span> <span class="hljs-attr">todos</span>=<span class="hljs-string">&#123;todos&#125;</span> /&gt;</span></span>
+<span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">TodosDispatch.Provider</span>&gt;</span></span>
+  );
+&#125;</code></pre></div>
+
+<ul>
 <li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down">如何避免向下传递回调？</a></li>
 </ul>
+<h2 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h2><p>useCallback(fn, deps) 写法可以理解为 useMemo(() =&gt; fn, deps)</p>
 
             </div>
             <hr>
