@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mowanqing.com/posts/8cb39ba1/</loc>
+    <loc>http://mowanqing.com/posts/c7d2847c/</loc>
     
     <lastmod>2022-04-30</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>http://mowanqing.com/posts/e509b107/</loc>
+    
+    <lastmod>2022-04-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://mowanqing.com/posts/8cb39ba1/</loc>
     
     <lastmod>2022-04-30</lastmod>
     
@@ -187,6 +196,13 @@
   </url>
   
   <url>
+    <loc>http://mowanqing.com/tags/useCallback/</loc>
+    <lastmod>2022-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://mowanqing.com/tags/useEffect/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -201,7 +217,7 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/useCallback/</loc>
+    <loc>http://mowanqing.com/tags/utils/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -222,14 +238,14 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/map/</loc>
+    <loc>http://mowanqing.com/tags/Vue3/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/Vue3/</loc>
+    <loc>http://mowanqing.com/tags/map/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -259,7 +275,7 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/JS/</loc>
+    <loc>http://mowanqing.com/categories/React/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -273,7 +289,7 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/React/</loc>
+    <loc>http://mowanqing.com/categories/JS/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
