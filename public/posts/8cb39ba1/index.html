@@ -16,16 +16,16 @@
   <meta name="author" content="Moweiwei">
   <meta name="keywords" content="博客 mowanqing">
   
-    <meta name="description" content="源码分析const useFetchData &#x3D; (   getData: undefined | ((params?: &amp;#123; pageSize: number; current: number &amp;#125;) &#x3D;&gt; Promise&lt;T&gt;),   defaultData: any[] | undefined,   options: UseFetchProps, ): Us">
+    <meta name="description" content="源码分析&#x2F;**  * 合并用户配置的分页参数和默认值  *  * @param param0  *&#x2F; const mergeOptionAndPageInfo &#x3D; (&amp;#123; pageInfo &amp;#125;: UseFetchProps) &#x3D;&gt; &amp;#123;   if (pageInfo) &amp;#123;     const &amp;#123; current, defaultCurrent,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Antd Pro 源码分析之 useFetchData">
 <meta property="og:url" content="http://mowanqing.com/posts/8cb39ba1/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="源码分析const useFetchData &#x3D; (   getData: undefined | ((params?: &amp;#123; pageSize: number; current: number &amp;#125;) &#x3D;&gt; Promise&lt;T&gt;),   defaultData: any[] | undefined,   options: UseFetchProps, ): Us">
+<meta property="og:description" content="源码分析&#x2F;**  * 合并用户配置的分页参数和默认值  *  * @param param0  *&#x2F; const mergeOptionAndPageInfo &#x3D; (&amp;#123; pageInfo &amp;#125;: UseFetchProps) &#x3D;&gt; &amp;#123;   if (pageInfo) &amp;#123;     const &amp;#123; current, defaultCurrent,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/index-img.png">
 <meta property="article:published_time" content="2022-04-30T08:01:55.000Z">
-<meta property="article:modified_time" content="2022-04-30T16:23:28.212Z">
+<meta property="article:modified_time" content="2022-04-30T16:39:26.311Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="Hook">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.6k 字
+      6.2k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47 分钟
+      52 分钟
     </span>
   
 
@@ -245,12 +245,31 @@
             <h1 style="display: none">Antd Pro 源码分析之 useFetchData</h1>
             
             <div class="markdown-body">
-              <h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> useFetchData = (
-  getData: <span class="hljs-literal">undefined</span> | (<span class="hljs-function">(<span class="hljs-params">params?: &#123; pageSize: <span class="hljs-built_in">number</span>; current: <span class="hljs-built_in">number</span> &#125;</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>&lt;T&gt;),
-  <span class="hljs-attr">defaultData</span>: <span class="hljs-built_in">any</span>[] | <span class="hljs-literal">undefined</span>,
+              <h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * 合并用户配置的分页参数和默认值</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-variable">param0</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">const</span> mergeOptionAndPageInfo = <span class="hljs-function">(<span class="hljs-params">&#123; pageInfo &#125;: UseFetchProps</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">if</span> (pageInfo) &#123;
+    <span class="hljs-keyword">const</span> &#123; current, defaultCurrent, pageSize, defaultPageSize &#125; = pageInfo;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">current</span>: current || defaultCurrent || <span class="hljs-number">1</span>,
+      <span class="hljs-attr">total</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">pageSize</span>: pageSize || defaultPageSize || <span class="hljs-number">20</span>,
+    &#125;;
+  &#125;
+  <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">current</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">total</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">pageSize</span>: <span class="hljs-number">20</span> &#125;;
+&#125;;</code></pre></div>
+
+<div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> useFetchData = (
+  getData: <span class="hljs-literal">undefined</span> | (<span class="hljs-function">(<span class="hljs-params">params?: &#123; pageSize: <span class="hljs-built_in">number</span>; current: <span class="hljs-built_in">number</span> &#125;</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>&lt;T&gt;), <span class="hljs-comment">// 即 protable 中的的 fetchData，即 request</span>
+  <span class="hljs-attr">defaultData</span>: <span class="hljs-built_in">any</span>[] | <span class="hljs-literal">undefined</span>, <span class="hljs-comment">// 表格默认数据</span>
   <span class="hljs-attr">options</span>: UseFetchProps,
 ): <span class="hljs-function"><span class="hljs-params">UseFetchDataAction</span> =&gt;</span> &#123;
+  <span class="hljs-comment">// 组件卸载标记， true 表示组件已卸载</span>
   <span class="hljs-keyword">const</span> umountRef = useRef&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
+
   <span class="hljs-keyword">const</span> &#123; onLoad, manual, polling, onRequestError, debounceTime = <span class="hljs-number">20</span> &#125; = options || &#123;&#125;;
 
   <span class="hljs-comment">/** 是否首次加载的指示器 */</span>
@@ -258,16 +277,19 @@
 
   <span class="hljs-comment">/** 轮询的setTime ID 存储 */</span>
   <span class="hljs-keyword">const</span> pollingSetTimeRef = useRef&lt;<span class="hljs-built_in">any</span>&gt;();
+  <span class="hljs-comment">// useMountMergeState 类似 useState, props 提供值，用 props 值来初始化 state。而且挂载后执行。</span>
   <span class="hljs-keyword">const</span> [list, setList] = useMountMergeState&lt;<span class="hljs-built_in">any</span>[] | <span class="hljs-literal">undefined</span>&gt;(defaultData, &#123;
     <span class="hljs-attr">value</span>: options?.dataSource,
     <span class="hljs-attr">onChange</span>: options?.onDataSourceChange,
   &#125;);
 
+  <span class="hljs-comment">// 表格 loading 状态</span>
   <span class="hljs-keyword">const</span> [tableLoading, setLoading] = useMountMergeState&lt;UseFetchDataAction[<span class="hljs-string">&#x27;loading&#x27;</span>]&gt;(<span class="hljs-literal">false</span>, &#123;
     <span class="hljs-attr">value</span>: options?.loading,
     <span class="hljs-attr">onChange</span>: options?.onLoadingChange,
   &#125;);
 
+  <span class="hljs-comment">// 是否正在请求进行中标记</span>
   <span class="hljs-keyword">const</span> requesting = useRef(<span class="hljs-literal">false</span>);
 
   <span class="hljs-keyword">const</span> [pageInfo, setPageInfoState] = useMountMergeState&lt;PageInfo&gt;(
@@ -276,6 +298,8 @@
       <span class="hljs-attr">onChange</span>: options?.onPageInfoChange,
     &#125;,
   );
+
+  <span class="hljs-comment">// useRefFunction 保持函数引用，避免重复声明</span>
   <span class="hljs-keyword">const</span> setPageInfo = useRefFunction(<span class="hljs-function">(<span class="hljs-params">changePageInfo: PageInfo</span>) =&gt;</span> &#123;
     <span class="hljs-keyword">if</span> (
       changePageInfo.current !== pageInfo.current ||
@@ -286,6 +310,7 @@
     &#125;
   &#125;);
 
+  <span class="hljs-comment">// 轮询 loading 状态</span>
   <span class="hljs-keyword">const</span> [pollingLoading, setPollingLoading] = useMountMergeState(<span class="hljs-literal">false</span>);
 
   <span class="hljs-comment">// Batching update  https://github.com/facebook/react/issues/14259</span>
@@ -305,6 +330,7 @@
   <span class="hljs-keyword">const</span> prePageSize = usePrevious(pageInfo?.pageSize);
   <span class="hljs-keyword">const</span> prePolling = usePrevious(polling);
 
+  <span class="hljs-comment">// params、filter、sort 等查询参数相关</span>
   <span class="hljs-keyword">const</span> &#123; effects = [] &#125; = options || &#123;&#125;;
 
   <span class="hljs-comment">/**</span>
@@ -446,6 +472,7 @@
     <span class="hljs-comment">// eslint-disable-next-line react-hooks/exhaustive-deps</span>
   &#125;, [pageInfo?.pageSize]);
 
+  <span class="hljs-comment">// 深比较，参数变化重新触发请求</span>
   useDeepCompareEffect(<span class="hljs-function">() =&gt;</span> &#123;
     fetchListDebounce.run(<span class="hljs-literal">false</span>);
     <span class="hljs-keyword">if</span> (!manual) &#123;
