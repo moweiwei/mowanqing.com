@@ -6,7 +6,7 @@
   <link href="http://mowanqing.com/atom.xml" rel="self"/>
   
   <link href="http://mowanqing.com/"/>
-  <updated>2022-05-01T14:41:42.935Z</updated>
+  <updated>2022-05-01T14:45:29.722Z</updated>
   <id>http://mowanqing.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>utils</title>
+    <title>utils 工具函数</title>
     <link href="http://mowanqing.com/posts/c7d2847c/"/>
     <id>http://mowanqing.com/posts/c7d2847c/</id>
     <published>2022-04-30T16:50:28.000Z</published>
-    <updated>2022-05-01T14:41:42.935Z</updated>
+    <updated>2022-05-01T14:45:29.722Z</updated>
     
     <content type="html"><![CDATA[<h2 id="runFunction"><a href="#runFunction" class="headerlink" title="runFunction"></a>runFunction</h2><p>是函数就返回调用函数，是值就返回值。</p><div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runFunction</span>&lt;<span class="hljs-title">T</span> <span class="hljs-title">extends</span> <span class="hljs-title">any</span>[]&gt;(<span class="hljs-params">valueEnum: <span class="hljs-built_in">any</span>, ...rest: T</span>) </span>&#123;  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> valueEnum === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;    <span class="hljs-keyword">return</span> valueEnum(...rest);  &#125;  <span class="hljs-keyword">return</span> valueEnum;&#125;</code></pre></div>]]></content>
     

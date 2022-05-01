@@ -189,21 +189,7 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/React-TypeScript/</loc>
-    <lastmod>2022-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://mowanqing.com/tags/useEffect/</loc>
-    <lastmod>2022-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://mowanqing.com/tags/Hook/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -217,7 +203,14 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/utils/</loc>
+    <loc>http://mowanqing.com/tags/React-TypeScript/</loc>
+    <lastmod>2022-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://mowanqing.com/tags/Hook/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -245,14 +238,21 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/Vue3/</loc>
+    <loc>http://mowanqing.com/tags/vscode/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/vscode/</loc>
+    <loc>http://mowanqing.com/tags/utils/</loc>
+    <lastmod>2022-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://mowanqing.com/tags/Vue3/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -296,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/Vue/</loc>
+    <loc>http://mowanqing.com/categories/vscode/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://mowanqing.com/categories/vscode/</loc>
+    <loc>http://mowanqing.com/categories/Vue/</loc>
     <lastmod>2022-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
