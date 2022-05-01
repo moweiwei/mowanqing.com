@@ -18,21 +18,21 @@
   
     <meta name="description" content="usePrevious上一步更新状态值 import &amp;#123; useEffect, useRef &amp;#125; from &amp;#x27;react&amp;#x27;;  const usePrevious &#x3D; &lt;T&gt;(state: T): T | undefined &#x3D;&gt; &amp;#123;   const ref &#x3D; useRef&lt;T&gt;();    useEffect(()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Antd 源码分析之常用 hooks">
+<meta property="og:title" content="Antd 源码分析之常用 hooks 分析">
 <meta property="og:url" content="http://mowanqing.com/posts/e509b107/index.html">
 <meta property="og:site_name" content="Just.Upward">
 <meta property="og:description" content="usePrevious上一步更新状态值 import &amp;#123; useEffect, useRef &amp;#125; from &amp;#x27;react&amp;#x27;;  const usePrevious &#x3D; &lt;T&gt;(state: T): T | undefined &#x3D;&gt; &amp;#123;   const ref &#x3D; useRef&lt;T&gt;();    useEffect(()">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-04-29-1.jpeg">
 <meta property="article:published_time" content="2022-04-28T17:01:04.000Z">
-<meta property="article:modified_time" content="2022-04-30T16:48:45.041Z">
+<meta property="article:modified_time" content="2022-05-01T14:41:15.608Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="Hook">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mowanqing.com/img/2022-04-29-1.jpeg">
   
   
-  <title>Antd 源码分析之常用 hooks - Just.Upward</title>
+  <title>Antd 源码分析之常用 hooks 分析 - Just.Upward</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Antd 源码分析之常用 hooks">
+            <span class="h2" id="subtitle" title="Antd 源码分析之常用 hooks 分析">
               
             </span>
 
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.5k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      22 分钟
     </span>
   
 
@@ -242,7 +242,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Antd 源码分析之常用 hooks</h1>
+            <h1 style="display: none">Antd 源码分析之常用 hooks 分析</h1>
             
             <div class="markdown-body">
               <h2 id="usePrevious"><a href="#usePrevious" class="headerlink" title="usePrevious"></a>usePrevious</h2><p>上一步更新状态值</p>
@@ -326,6 +326,42 @@
     cancel,
   &#125;;
 &#125;</code></pre></div>
+
+<h2 id="useLatest"><a href="#useLatest" class="headerlink" title="useLatest"></a>useLatest</h2><p>用于在异步回调中获取最新的 props 或 state 值。</p>
+<p>源码：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> useLatest = &lt;T&gt;(value: T): &#123; <span class="hljs-keyword">readonly</span> current: T &#125; =&gt; &#123;
+  <span class="hljs-keyword">const</span> ref = useRef(value);
+  ref.current = value;
+  <span class="hljs-keyword">return</span> ref;
+&#125;;</code></pre></div>
+
+<p>用法：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; useLatest &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-use&#x27;</span>;
+
+<span class="hljs-keyword">const</span> Demo = <span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-keyword">const</span> [count, setCount] = React.useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> latestCount = useLatest(count);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleAlertClick</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+      alert(<span class="hljs-string">`Latest count value: <span class="hljs-subst">$&#123;latestCount.current&#125;</span>`</span>);
+    &#125;, <span class="hljs-number">3000</span>);
+  &#125;
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked &#123;count&#125; times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+<span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+<span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;handleAlertClick&#125;</span>&gt;</span>Show alert<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+<span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+&#125;;</code></pre></div>
+
+<div class="hljs code-wrapper"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> propsRef = useLatest(props);
+
+<span class="hljs-keyword">const</span> onValueChange = useCallback(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;, [propsRef])</code></pre></div>
 
             </div>
             <hr>
