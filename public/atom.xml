@@ -158,9 +158,9 @@
     
     
     
-    <category term="React" scheme="http://mowanqing.com/categories/React/"/>
-    
     <category term="React Hook" scheme="http://mowanqing.com/categories/React-Hook/"/>
+    
+    <category term="React" scheme="http://mowanqing.com/categories/React/"/>
     
     
     <category term="useCallback" scheme="http://mowanqing.com/tags/useCallback/"/>
@@ -210,9 +210,9 @@
     
     
     
-    <category term="React" scheme="http://mowanqing.com/categories/React/"/>
-    
     <category term="React Hook" scheme="http://mowanqing.com/categories/React-Hook/"/>
+    
+    <category term="React" scheme="http://mowanqing.com/categories/React/"/>
     
     
     <category term="useEffect" scheme="http://mowanqing.com/tags/useEffect/"/>
@@ -440,9 +440,9 @@
     <category term="React" scheme="http://mowanqing.com/categories/React/"/>
     
     
-    <category term="React" scheme="http://mowanqing.com/tags/React/"/>
-    
     <category term="HooK" scheme="http://mowanqing.com/tags/HooK/"/>
+    
+    <category term="React" scheme="http://mowanqing.com/tags/React/"/>
     
   </entry>
   
