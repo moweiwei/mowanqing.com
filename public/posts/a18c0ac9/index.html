@@ -16,16 +16,16 @@
   <meta name="author" content="Moweiwei">
   <meta name="keywords" content="博客 mowanqing">
   
-    <meta name="description" content="JS1、请你讲一下闭包?  简单：闭包是有权限访问其他函数作用域内的变量的一个函数。 完整：由于在JS中，变量的作用域属于函数作用域，在函数执行后作用域就会被清理、内存也随之回收，但是由于闭包是建立在一个函数内部的子函数，由于其可访问上级作用域的原因，即使上级函数执行完，作用域也不会随之销毁，这时的子函数——也就是闭包，便拥有了访问上级作用域中的变量的权限，即使上级函数执行完后作用域内的值也不会被">
+    <meta name="description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 到底代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端工程师面试题">
 <meta property="og:url" content="http://mowanqing.com/posts/a18c0ac9/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="JS1、请你讲一下闭包?  简单：闭包是有权限访问其他函数作用域内的变量的一个函数。 完整：由于在JS中，变量的作用域属于函数作用域，在函数执行后作用域就会被清理、内存也随之回收，但是由于闭包是建立在一个函数内部的子函数，由于其可访问上级作用域的原因，即使上级函数执行完，作用域也不会随之销毁，这时的子函数——也就是闭包，便拥有了访问上级作用域中的变量的权限，即使上级函数执行完后作用域内的值也不会被">
+<meta property="og:description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 到底代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-16-1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-04-15T09:59:06.736Z">
+<meta property="article:modified_time" content="2022-05-18T15:06:39.956Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12k 字
+      13k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      100 分钟
+      105 分钟
     </span>
   
 
@@ -245,7 +245,27 @@
             <h1 style="display: none">前端工程师面试题</h1>
             
             <div class="markdown-body">
-              <h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><p>1、请你讲一下闭包?</p>
+              <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
+<li><p>左右两栏布局， 一侧定宽、一侧自适应撑满?</p>
+</li>
+<li><p>flex:1 到底代表什么?</p>
+</li>
+</ol>
+<p>直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs text">flex: 1 等价于
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 0%;
+不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间
+
+而flex: auto 等价于
+
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: auto;
+如果设置了宽度，flex-basis的值是width，所有子项平分取去掉flex-basis的剩余空间</code></pre></div>
+
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><p>1、请你讲一下闭包?</p>
 <blockquote>
 <p>简单：闭包是有权限访问其他函数作用域内的变量的一个函数。</p>
 <p>完整：由于在JS中，变量的作用域属于函数作用域，在函数执行后作用域就会被清理、内存也随之回收，但是由于闭包是建立在一个函数内部的子函数，由于其可访问上级作用域的原因，即使上级函数执行完，作用域也不会随之销毁，这时的子函数——也就是闭包，便拥有了访问上级作用域中的变量的权限，即使上级函数执行完后作用域内的值也不会被销毁。</p>
@@ -278,11 +298,17 @@
 <p>useRef</p>
 <p>useState 更新值时传入回调函数</p>
 <p>2、介绍一下 JS 里面的原型？</p>
-<blockquote>
-<p>每个对象都有一个 prototype 属性，就是原型，是一个对象，叫原型对象。</p>
-</blockquote>
 <ul>
-<li>原型的作用是什么？</li>
+<li><p>所有原型链的终点都是 Object 函数的 prototype 属性</p>
+</li>
+<li><p>每一个构造函数都拥有一个 prototype 属性，此属性指向一个对象，也就是原型对象</p>
+</li>
+<li><p>原型对象默认拥有一个 constructor 属性，指向指向它的那个构造函数</p>
+</li>
+<li><p>每个对象都拥有一个隐藏的属性 __proto__，指向它的原型对象</p>
+</li>
+<li><p>原型的作用是什么？</p>
+</li>
 </ul>
 <blockquote>
 <p>共享方法</p>
@@ -317,7 +343,7 @@
 <p>确保了 this.props 在构造函数执行完毕之前已被赋值。</p>
 <p>4、eventloop</p>
 <p>浏览器或node 端 js 单线程运行时不会阻塞的一种机制。</p>
-<p>任务分为宏任务和微任务；</p>
+<p>任务分为宏任务和微任务；宏任务与微任务的区别?</p>
 <p>宏任务：script全部代码、setTimeout、setInterval、I/O、UI Rendering。<br>微任务：Process.nextTick（Node独有）、Promise、Object.observe(废弃)、MutationObserver</p>
 <ul>
 <li>浏览器中的 event loop</li>
@@ -639,12 +665,26 @@ vm.items.splice(newLength)</code></pre></div>
 <p>Cache-Control，ETag，Last-Modified</p>
 </blockquote>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
-<li>什 么 是 TS 泛 型 ？</li>
-<li>webpack 构 建 流 程 是 怎 样 的 ？</li>
-<li>webpack loade r 和 plugin 的 原 理 和 区 别 ？</li>
-<li>webpack 热 更 新 原 理 ？</li>
-<li>有没有读过哪些源码？</li>
-<li>最近开发的项目具体业务是怎么样的？介绍一下？</li>
+<li><p>弱网环境下页面首屏如何快速加载?</p>
+<p> 1.缓存的使用 2.SSR使用 3.骨架屏使用</p>
+</li>
+<li><p>code review需要注意的点，你做code reivew的话，会重点查看哪里，怎么写出高内聚，低耦合的代码，以实习中遇到的一个通用组件实现举例。</p>
+</li>
+<li><p>什 么 是 TS 泛 型 ？</p>
+</li>
+<li><p>webpack 构 建 流 程 是 怎 样 的 ？</p>
+</li>
+<li><p>webpack loade r 和 plugin 的 原 理 和 区 别 ？</p>
+</li>
+<li><p>webpack 热 更 新 原 理 ？</p>
+</li>
+<li><p>有没有读过哪些源码？</p>
+</li>
+<li><p>最近开发的项目具体业务是怎么样的？介绍一下？</p>
+</li>
+<li><p>对前端而言，你觉得函数式编程体现在哪些方面？</p>
+<p> 纯函数、不可变数据、高阶函数。<br> react 就是函数式思想，数据是不可变的，react 相当于纯函数，展示出来的 ui 就是结果。<br> redux 更是函数式思想</p>
+</li>
 </ol>
 <h2 id="Devops-相关"><a href="#Devops-相关" class="headerlink" title="Devops 相关"></a>Devops 相关</h2><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>1、什么情况下使用 git rebase, 而不用 git merge</p>
 <h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><ol>
