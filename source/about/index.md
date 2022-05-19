@@ -31,15 +31,18 @@ layout: about
 5、联系我
 
 - Email: moweiwei6@gmail.com
-- GitHub: https://github.com/moweiwei
+- GitHub: <https://github.com/moweiwei>
 
 6、END
 
 - Stay hungry. Stay foolish.
 - 知人者智，自知者明。胜人者有力，自胜者强。
 
----
-
-![](/img/miaomiao.JPG)
-
----
+<center>
+  <figure>
+    <img src="/img/about/1.JPG" width="220">
+    <img src="/img/about/2.png" width="220">
+    <img src="/img/about/4.jpg" width="220" height="293">
+    <img src="/img/about/3.png" width="220">
+  </figure>
+</center>
