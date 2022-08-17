@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-16-1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-05-26T03:32:12.395Z">
+<meta property="article:modified_time" content="2022-08-16T07:08:00.912Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      13k 字
+      14k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      105 分钟
+      120 分钟
     </span>
   
 
@@ -265,7 +265,21 @@ flex-shrink: 1;
 flex-basis: auto;
 如果设置了宽度，flex-basis的值是width，所有子项平分取去掉flex-basis的剩余空间</code></pre></div>
 
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><p>1、请你讲一下闭包?</p>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
+<li>map 和 foreach 有什么区别</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js">foreach()方法会针对每一个元素执行提供得函数,该方法没有返回值,是否会改变原数组取决与数组元素的类型是基本类型还是引用类型
+map()方法不会改变原数组的值,返回一个新数组,新数组中的值为原数组调用函数处理之后的值：</code></pre></div>
+
+<ul>
+<li>说一下for…in 和 for…of的区别?</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">for</span>...of遍历获取的是对象的键值, <span class="hljs-keyword">for</span>...in获取的是对象的键名;
+<span class="hljs-keyword">for</span>...in会遍历对象的整个原型链, 性能非常差不推荐使用,而<span class="hljs-keyword">for</span>...of只遍历当前对象不会遍历原型链;
+对于数组的遍历,<span class="hljs-keyword">for</span>...in会返回数组中所有可枚举的属性(包括原型链上可枚举的属性),<span class="hljs-keyword">for</span>...of只返回数组的下标对应的属性值;
+总结：<span class="hljs-keyword">for</span>...in循环主要是为了遍历对象而生,不适用遍历数组; <span class="hljs-keyword">for</span>....of循环可以用来遍历数组、类数组对象、字符串、<span class="hljs-built_in">Set</span>、<span class="hljs-built_in">Map</span>以及Generator对象</code></pre></div>
+
+<p>1、请你讲一下闭包?</p>
 <blockquote>
 <p>简单：闭包是有权限访问其他函数作用域内的变量的一个函数。</p>
 <p>完整：由于在JS中，变量的作用域属于函数作用域，在函数执行后作用域就会被清理、内存也随之回收，但是由于闭包是建立在一个函数内部的子函数，由于其可访问上级作用域的原因，即使上级函数执行完，作用域也不会随之销毁，这时的子函数——也就是闭包，便拥有了访问上级作用域中的变量的权限，即使上级函数执行完后作用域内的值也不会被销毁。</p>
@@ -663,7 +677,20 @@ vm.items.splice(newLength)</code></pre></div>
 <blockquote>
 <p>Cache-Control，ETag，Last-Modified</p>
 </blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>怎么解决白屏问题?</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-number">1</span>、加loading
+<span class="hljs-number">2</span>、骨架屏</code></pre></div>
+
+<ul>
+<li>webpack loader 和 plugin  区 别 ？</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js">Loader：直译为<span class="hljs-string">&quot;加载器&quot;</span>。Webpack将一切文件视为模块，但是webpack原生是只能解析js文件，如果想将其他文件也打包的话，就会用到<span class="hljs-string">`loader`</span>。 所以Loader的作用是让webpack拥有了加载和解析非JavaScript文件的能力。   
+Plugin：直译为<span class="hljs-string">&quot;插件&quot;</span>。Plugin可以扩展webpack的功能，让webpack具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
+</code></pre></div>
+
+<ol>
 <li><p>弱网环境下页面首屏如何快速加载?</p>
 <p> 1.缓存的使用 2.SSR使用 3.骨架屏使用</p>
 </li>
@@ -672,8 +699,6 @@ vm.items.splice(newLength)</code></pre></div>
 <li><p>什 么 是 TS 泛 型 ？</p>
 </li>
 <li><p>webpack 构 建 流 程 是 怎 样 的 ？</p>
-</li>
-<li><p>webpack loade r 和 plugin 的 原 理 和 区 别 ？</p>
 </li>
 <li><p>webpack 热 更 新 原 理 ？</p>
 </li>
@@ -685,7 +710,49 @@ vm.items.splice(newLength)</code></pre></div>
 <p> 纯函数、不可变数据、高阶函数。<br> react 就是函数式思想，数据是不可变的，react 相当于纯函数，展示出来的 ui 就是结果。<br> redux 更是函数式思想</p>
 </li>
 </ol>
-<h2 id="Devops-相关"><a href="#Devops-相关" class="headerlink" title="Devops 相关"></a>Devops 相关</h2><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>1、什么情况下使用 git rebase, 而不用 git merge</p>
+<h2 id="Devops-相关"><a href="#Devops-相关" class="headerlink" title="Devops 相关"></a>Devops 相关</h2><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>常用 git 操作</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js">git branch 查看本地所有分支
+git status 查看当前状态 
+git commit 提交 
+git branch -a 查看所有的分支
+git branch -r 查看远程所有分支
+git commit -am <span class="hljs-string">&quot;init&quot;</span> 提交并且加注释 
+git remote add origin git@<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.119</span>:ndshow
+git push origin master 将文件给推到服务器上 
+git remote show origin 显示远程库origin里的资源 
+git push origin master:develop
+git push origin master:hb-dev 将本地库与服务器上的库进行关联 
+git checkout --track origin/dev 切换到远程dev分支
+git branch -D master develop 删除本地库develop
+git checkout -b dev 建立一个新的本地分支dev
+git merge origin/dev 将分支dev与当前分支进行合并
+git checkout dev 切换到本地dev分支
+git remote show 查看远程库
+git add .
+git rm 文件名(包括路径) 从git中删除指定文件
+git clone git:<span class="hljs-comment">//github.com/schacon/grit.git 从服务器上将代码给拉下来</span>
+git config --list 看所有用户
+git ls-files 看已经被提交的
+git rm [file name] 删除一个文件
+git commit -a 提交当前repos的所有的改变
+git add [file name] 添加一个文件到git index
+git commit -v 当你用－v参数的时候可以看commit的差异
+git commit -m <span class="hljs-string">&quot;This is the message describing the commit&quot;</span> 添加commit信息
+git commit -a -a是代表add，把所有的change加到git index里然后再commit
+git commit -a -v 一般提交命令
+git log 看你commit的日志
+git diff 查看尚未暂存的更新
+git rm a.a 移除文件(从暂存区和工作区中删除)
+git rm --cached a.a 移除文件(只从暂存区中删除)
+git commit -m <span class="hljs-string">&quot;remove&quot;</span> 移除文件(从Git中删除)
+git rm -f a.a 强行移除修改后文件(从暂存区和工作区中删除)
+git diff --cached 或 $ git diff --staged 查看尚未提交的更新
+git stash push 将文件给push到一个临时空间中
+git stash pop 将文件从临时空间pop下来</code></pre></div>
+
+<p>1、什么情况下使用 git rebase, 而不用 git merge</p>
 <h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><ol>
 <li>谈谈一下对 nginx 的理解，项目中用到 nginx 的哪些功能？</li>
 </ol>
