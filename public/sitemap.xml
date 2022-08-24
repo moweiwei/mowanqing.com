@@ -251,14 +251,14 @@
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/%E9%97%AD%E5%8C%85/</loc>
+    <loc>http://mowanqing.com/tags/webpack/</loc>
     <lastmod>2022-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://mowanqing.com/tags/webpack/</loc>
+    <loc>http://mowanqing.com/tags/%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2022-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
