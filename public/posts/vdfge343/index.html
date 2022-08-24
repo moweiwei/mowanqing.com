@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/index-img.png">
 <meta property="article:published_time" content="2022-02-15T02:14:34.000Z">
-<meta property="article:modified_time" content="2022-08-23T02:50:41.854Z">
+<meta property="article:modified_time" content="2022-08-24T01:44:29.023Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -1618,7 +1618,7 @@ src="[_https://user-_](https://user-images.githubusercontent.com/17233651/424962
 </ol>
 <p>–原型链继承</p>
 <h3 id="function-Cat-Cat-prototype-new-Animal-Cat-prototype-name-‘cat’"><a href="#function-Cat-Cat-prototype-new-Animal-Cat-prototype-name-‘cat’" class="headerlink" title="function Cat(){ } Cat.prototype = new Animal(); Cat.prototype.name = ‘cat’"></a>function Cat(){ } Cat.prototype = new Animal(); Cat.prototype.name = ‘cat’</h3><p>// Test Code</p>
-<p>var cat = new Cat(); console.log(cat.name); console.log(cat.eat(‘fish’));<br>console.log(cat.sleep());</p>
+<p>var cat = new Cat(); console.log(cat.name); console.log(cat.eat(‘fish’)); console.log(cat.sleep());</p>
 <p>console.log(cat instanceof Animal); //true console.log(cat instanceof Cat); //true</p>
 <p>介绍：在这里我们可以看到 new 了一个空对象,这个空对象指向 Animal 并且</p>
 <p>Cat.prototype 指向了这个空对象，这种就是基于原型链的继承。特点：基于原型链，既是父类的实例，也是子类的实例</p>
@@ -3658,7 +3658,6 @@ src="[_https://user-_](https://user-images.githubusercontent.com/17233651/424932
 <li>圆角 bug</li>
 </ul>
 <p><img src="media/image29.jpeg" srcset="/img/loading.gif" lazyload> 参考回答：</p>
-<h3 id="作者：Aniugel"><a href="#作者：Aniugel" class="headerlink" title="作者：Aniugel"></a>作者：Aniugel</h3><p>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/610123c6ed45"><em>https://www.jianshu.com/p/610123c6ed45</em></a> 来源：简书</p>
 <h2 id="五、前端进阶"><a href="#五、前端进阶" class="headerlink" title="五、前端进阶"></a>五、前端进阶</h2><ol>
 <li><h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="| 前端工程化"></a>| 前端工程化</h2></li>
 </ol>
@@ -3758,7 +3757,7 @@ src="[_https://user-_](https://user-images.githubusercontent.com/17233651/424932
 <p>parentPath &amp;&amp; visitor.BinaryExpression.call(this, parentPath);</p>
 <p>}</p>
 <p>到这里，我们就得出了结果 const result = 15;</p>
-<h3 id="那么其他运算呢"><a href="#那么其他运算呢" class="headerlink" title="那么其他运算呢"></a>那么其他运算呢</h3><p>const result = 100 + 10 - 50&gt;&gt;&gt;const result = 60; const result = (100 / 2) + 50&gt;&gt;&gt;const result<br>= 100;</p>
+<h3 id="那么其他运算呢"><a href="#那么其他运算呢" class="headerlink" title="那么其他运算呢"></a>那么其他运算呢</h3><p>const result = 100 + 10 - 50&gt;&gt;&gt;const result = 60; const result = (100 / 2) + 50&gt;&gt;&gt;const result =<br>100;</p>
 <p>const result = (((100 / 2) + 50 * 2) / 50) ** 2&gt;&gt;&gt;const result = 9;</p>
 <ul>
 <li><h3 id="你的-git-工作流是怎样的"><a href="#你的-git-工作流是怎样的" class="headerlink" title="你的 git 工作流是怎样的?"></a>你的 git 工作流是怎样的?</h3></li>
@@ -3779,7 +3778,7 @@ src="[_https://user-_](https://user-images.githubusercontent.com/17233651/424932
 <li><p>发布阶段：当一个新 feature 开发完成的时候，它会被合并</p>
 </li>
 </ul>
-<p>到 develop 分支，这个分支主要用来暂时保存那些还没有发布的内容，所以如果需要再开发新的 feature，我们只需要从 develop 分支创建新分支，即可包含所有已经完成的 feature<br>。</p>
+<p>到 develop 分支，这个分支主要用来暂时保存那些还没有发布的内容，所以如果需要再开发新的 feature，我们只需要从 develop 分支创建新分支，即可包含所有已经完成的 feature 。</p>
 <ul>
 <li>支持紧急修复：GitFlow 还包含了 hotfix 分支。这种类型的分支是从某个已经发布的 tag 上创建出来并做一个紧急的修复，而且这个紧急修复只影响这个已经发布的<br>tag，而不会影响到你正在开发的新 feature。</li>
 </ul>
@@ -4149,15 +4148,10 @@ console.log(e)
 <li><h2 id="React-框架"><a href="#React-框架" class="headerlink" title="| React 框架"></a>| React 框架</h2></li>
 </ol>
 <ul>
-<li><h3 id="angularJs-和-React-区别"><a href="#angularJs-和-React-区别" class="headerlink" title="angularJs 和 React 区别"></a>angularJs 和 React 区别</h3></li>
-</ul>
-<p>参考回答：</p>
-<p>React 对比 Angular 是思想上的转变，它也并不是一个库，是一种开发理念，组件化， 分治的管理，数据与 view 的一体化。它只有一个中心,发出状态，渲染 view，对于虚拟 dom<br>它并没有提高渲染页面的性能，它提供更多的是利用 jsx 便捷生成 dom 元素， 利用组件概念进行分治管理页面每个部分(例如 header section footer slider)</p>
-<ul>
 <li><h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3></li>
 </ul>
 <p>参考回答：</p>
-<p>中间件提供第三方插件的模式，自定义拦截 action -reducer 的过程。变为action -middlewares -reducer<br>。这种机制可以让我们改变数据流，实现如异步action ，action 过滤，日志输出，异常报告等功能。</p>
+<p>中间件提供第三方插件的模式，自定义拦截 action -reducer 的过程。变为action -middlewares -reducer 。这种机制可以让我们改变数据流，实现如异步action<br>，action 过滤，日志输出，异常报告等功能。</p>
 <p>常见的中间件： redux-logger：提供日志输出；redux-thunk：处理异步操作；</p>
 <p>redux-promise：处理异步操作；actionCreator 的返回值是 promise</p>
 <ul>
@@ -4438,8 +4432,8 @@ console.log(e)
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/1ad5be0d/">
-                        <span class="hidden-mobile">VS Code 配置</span>
+                      <a href="/posts/be6cbeef/">
+                        <span class="hidden-mobile">Webpack 原理分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
