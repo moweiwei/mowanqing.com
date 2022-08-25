@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-08-1.jpeg">
 <meta property="article:published_time" content="2022-08-24T02:29:04.000Z">
-<meta property="article:modified_time" content="2022-08-25T01:52:30.768Z">
+<meta property="article:modified_time" content="2022-08-25T01:54:06.350Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary_large_image">
@@ -281,7 +281,7 @@
 <li>然后会调用 HotModuleReplacement.runtime.js 的 hotAddUpdateChunk 方法动态更新模块代码</li>
 <li>然后调用 hotApply 热更新</li>
 </ul>
-<h2 id="webpack-打包的-hash-码是如何生成的？"><a href="#webpack-打包的-hash-码是如何生成的？" class="headerlink" title="webpack 打包的 hash 码是如何生成的？"></a>webpack 打包的 hash 码是如何生成的？</h2><p>webpack 中存在多种 hash：</p>
+<h2 id="3-webpack-打包的-hash-码是如何生成的？"><a href="#3-webpack-打包的-hash-码是如何生成的？" class="headerlink" title="3. webpack 打包的 hash 码是如何生成的？"></a>3. webpack 打包的 hash 码是如何生成的？</h2><p>webpack 中存在多种 hash：</p>
 <ul>
 <li>hash： 每次 webpack 编译中生成的 hash 值，一次打包，只有一个 hash 值，每次构建生成新的 hash。</li>
 <li>chunkhash: 每个 chunk 打包后，会产生的哈希，叫做 chunkhash</li>
@@ -311,7 +311,7 @@
       &#125;,
 &#125;</code></pre></div>
 
-<h2 id="webpack-如何利用-localStorage-离线缓存静态资源？"><a href="#webpack-如何利用-localStorage-离线缓存静态资源？" class="headerlink" title="webpack 如何利用 localStorage 离线缓存静态资源？"></a>webpack 如何利用 localStorage 离线缓存静态资源？</h2><ul>
+<h2 id="4-webpack-如何利用-localStorage-离线缓存静态资源？"><a href="#4-webpack-如何利用-localStorage-离线缓存静态资源？" class="headerlink" title="4. webpack 如何利用 localStorage 离线缓存静态资源？"></a>4. webpack 如何利用 localStorage 离线缓存静态资源？</h2><ul>
 <li>在配置 webpack 时，我们可使用html-webpack-plugin来注入一段脚本到 html， 来实现第三方或者公用资源的静态化存储。做法：在 html 中注入一段标识，例如&lt;% HtmlWebpackPlugin.options.loading.html %&gt;，在html-webpack-plugin中即可通过配置 html 属性，将 script 注入进去。</li>
 <li>通过配置webpack-mainfest-plugin，生成 mainfest.json 文件用来对比 js 资源的差异，做到是否替换，当然也要写缓存 script。</li>
 <li>在我们做 CI/CD 的时候，也可以通过编辑文件流来实现静态化脚本的注入，来降低服务器的压力，提高性能。</li>
