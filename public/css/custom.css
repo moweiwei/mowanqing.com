@@ -41,3 +41,23 @@ figure.highlight > i:before {
 .copy-btn-dark {
   color: #2f4f4f;
 }
+
+/* 动画 */
+
+#board {
+  -webkit-animation: avia-btt 1s 1 ease-in;
+  animation: avia-btt 1s 1 ease-in;
+  opacity: 1;
+}
+
+@keyframes avia-btt {
+  0% {
+    transform: translate(0, 2%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

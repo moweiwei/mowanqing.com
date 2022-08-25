@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=dark>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-08-1.jpeg">
 <meta property="article:published_time" content="2022-08-24T02:29:04.000Z">
-<meta property="article:modified_time" content="2022-08-24T02:41:14.349Z">
+<meta property="article:modified_time" content="2022-08-24T03:34:20.259Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      2.2k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      19 分钟
     </span>
   
 
@@ -281,6 +281,35 @@
 <li>然后会调用 HotModuleReplacement.runtime.js 的 hotAddUpdateChunk 方法动态更新模块代码</li>
 <li>然后调用 hotApply 热更新</li>
 </ul>
+<h2 id="webpack-打包的-hash-码是如何生成的？"><a href="#webpack-打包的-hash-码是如何生成的？" class="headerlink" title="webpack 打包的 hash 码是如何生成的？"></a>webpack 打包的 hash 码是如何生成的？</h2><p>webpack 中存在多种 hash：</p>
+<ul>
+<li>hash： 每次 webpack 编译中生成的 hash 值，一次打包，只有一个 hash 值，每次构建生成新的 hash。</li>
+<li>chunkhash: 每个 chunk 打包后，会产生的哈希，叫做 chunkhash</li>
+<li>contenthash: 根据文件内容创建，当文件内容发生变化时，contenthash 发生变化。</li>
+</ul>
+<p>hash、chunkhash、contenthash，首先生成效率越来越低，成本越来越高，影响范围越来越小，精度越来越细。</p>
+<blockquote>
+<p>hash是一整个项目，一次打包，只有一个hash值，是项目级的</p>
+<p>chunhash是从入口entry出发，到它的依赖，以及依赖的依赖，依赖的依赖的依赖，等等，一直下去，所打包构成的代码块(模块的集合)叫做一个chunk，也就是说，入口文件和它的依赖的模块构成的一个代码块，被称为一个chunk。</p>
+<p>contenthash是哈希只跟内容有关系，内容不变，哈希值不变。与chunkhash的区别可以举上面contenthash的例子，同时可以说明contenthash跟内容有关，但是chunkhash会考虑很多因素，比如模块路径、模块名称、模块大小、模块id等等。</p>
+</blockquote>
+<div class="hljs code-wrapper"><pre><code class="hljs text">什么是chunk？
+
+- 从入口entry出发，到它的依赖，以及依赖的依赖，依赖的依赖的依赖，等等，一直下去，所打包构成的代码块(模块- 的集合)叫做一个chunk，也就是说，入口文件和它的依赖的模块构成的一个代码块，被称为一个chunk。
+- 所以，一个入口对应一个chunk，多个入口，就会产生多个chunk
+- 所以，单入口文件，打包后chunkhash和hash值是不同的，但是效果是一样的</code></pre></div>
+
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span>
+<span class="hljs-built_in">module</span>.exports = &#123;
+    <span class="hljs-attr">entry</span>: &#123;
+        <span class="hljs-attr">entry1</span>: <span class="hljs-string">&#x27;./src/entry1.js&#x27;</span>,
+        <span class="hljs-attr">entry2</span>: <span class="hljs-string">&#x27;./src/entry2.js&#x27;</span>,
+    &#125;,
+    <span class="hljs-attr">output</span>: &#123;
+        <span class="hljs-attr">path</span>: path.resolve(__dirname, <span class="hljs-string">&#x27;dist&#x27;</span>),
+        <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;bundle.[chunkhash:8].js&#x27;</span> <span class="hljs-comment">//此处应该用chunkhash，因为有两个入口文件，如果用 hash 输出的文件名就一样了。</span>
+      &#125;,
+&#125;</code></pre></div>
 
             </div>
             <hr>
