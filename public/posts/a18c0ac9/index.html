@@ -16,16 +16,16 @@
   <meta name="author" content="Moweiwei">
   <meta name="keywords" content="博客 mowanqing">
   
-    <meta name="description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 到底代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价">
+    <meta name="description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端工程师面试题">
 <meta property="og:url" content="http://mowanqing.com/posts/a18c0ac9/index.html">
 <meta property="og:site_name" content="Just.Upward">
-<meta property="og:description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 到底代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价">
+<meta property="og:description" content="CSS 左右两栏布局， 一侧定宽、一侧自适应撑满?  flex:1 代表什么?   直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。 flex: 1 等价于 flex-grow: 1; flex-shrink: 1; flex-basis: 0%; 不管是否设置宽度，flex-basis的值都是0，所有子项平分全部的父亲空间  而flex: auto 等价于">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mowanqing.com/img/2022-02-16-1.jpeg">
 <meta property="article:published_time" content="2022-02-15T02:39:21.000Z">
-<meta property="article:modified_time" content="2022-08-23T02:19:23.468Z">
+<meta property="article:modified_time" content="2022-09-02T07:17:24.430Z">
 <meta property="article:author" content="Moweiwei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      14k 字
+      15k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      120 分钟
+      122 分钟
     </span>
   
 
@@ -245,12 +245,12 @@
             <h1 style="display: none">前端工程师面试题</h1>
             
             <div class="markdown-body">
-              <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
+              <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
 <li><p>左右两栏布局， 一侧定宽、一侧自适应撑满?</p>
 </li>
-<li><p>flex:1 到底代表什么?</p>
+<li><p>flex:1 代表什么?</p>
 </li>
-</ol>
+</ul>
 <p>直观的记忆是，如果设置了flex: 1，所有子项平分父亲，不管子项是否设置了固定宽度。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs text">flex: 1 等价于
 flex-grow: 1;
@@ -264,6 +264,16 @@ flex-grow: 1;
 flex-shrink: 1;
 flex-basis: auto;
 如果设置了宽度，flex-basis的值是width，所有子项平分取去掉flex-basis的剩余空间</code></pre></div>
+
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
+<li>MQTT、Websocket、TCP 三者有什么区别？</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-number">1.</span> 协议栈： 
+  MQTT： TCP 长链接、工作在低带宽、不可靠的网络的远程传感器和控制设备通讯而设计的协议
+  HTTP： TCP
+<span class="hljs-number">2.</span>  请求方式
+  MQTT： 发布/订阅模式、提供一对多的消息发布、使用 TCP/IP 提供网络连接、有三种消息发布服务质量，  
+  HTTP： 短连接、request/ response、基于TCP/IP通信协议来传递数据</code></pre></div>
 
 <h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
 <li>map 和 foreach 有什么区别</li>
@@ -375,7 +385,11 @@ map()方法不会改变原数组的值,返回一个新数组,新数组中的值�
 <li>每个宏任务执行完后，都会再检查微任务队列是否为空，不为空，就按先进先出执行完微任务，设置微任务为 null，再执行宏任务。</li>
 </ul>
 <p>Node 中 event loop(待补充)</p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>1、介绍一下react diff 算法 的工作原理？</p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ul>
+<li>怎么理解 React 中的副作用函数？</li>
+</ul>
+<p>react 里面纯函数的概念：固定的输入有固定的输出，在 react 组件里面，通过 props 和 state，</p>
+<p>1、介绍一下react diff 算法 的工作原理？</p>
 <ul>
 <li><p>react 状态变化渲染页面时，不会马上对DOM节点进行操作，是先通过diff算法计算后，再对有变化的DOM节点进行操作。</p>
 </li>
@@ -491,6 +505,7 @@ map()方法不会改变原数组的值,返回一个新数组,新数组中的值�
 <li>使用useState时候，使用push，pop，splice等直接更改数组对象的坑，应该采用析构方式.</li>
 <li>必包带来的坑,因为每次 render 都有一份新的状态，因此上述代码中的 setTimeout 使用产生了一个闭包，捕获了每次 render 后的 state，也就导致了输出了<br>0、1、2。如果你希望输出的内容是最新的 state 的话，可以通过 useRef 来保存 state。前文讲过 ref<br>在组件中只存在一份，无论何时使用它的引用都不会产生变化，因此可以来解决闭包引发的问题。</li>
 </ul>
+<p>12、代码错误导致页面白屏问题，错误边界</p>
 <h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>1、Vue如何监听数组的变化？</p>
 <ul>
 <li>对象数据是怎么被监听的?</li>
