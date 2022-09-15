@@ -163,9 +163,9 @@
     
     <categories>
       
-      <category>React</category>
-      
       <category>React Hook</category>
+      
+      <category>React</category>
       
     </categories>
     
@@ -215,9 +215,9 @@
     
     <categories>
       
-      <category>React</category>
-      
       <category>React Hook</category>
+      
+      <category>React</category>
       
     </categories>
     
@@ -474,9 +474,9 @@
     
     <tags>
       
-      <tag>React</tag>
-      
       <tag>HooK</tag>
+      
+      <tag>React</tag>
       
     </tags>
     
@@ -514,7 +514,7 @@
     <link href="/posts/25d325e2/"/>
     <url>/posts/25d325e2/</url>
     
-    <content type="html"><![CDATA[<p>构建镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker build -t user-manage:v1.0 .</code></pre></div><p>运行容器镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~/gitlab/k8s-installer-ui/dist:/usr/share/nginx/html -v ~/default.conf:/etc/nginx/conf.d/default.conf nginx<span class="hljs-comment"># --rm container 停止后删除 container</span><span class="hljs-comment"># -d 后台运行容器</span><span class="hljs-comment"># -p 80:80 前者本地端口，后者是 dockerfile 暴露端口</span><span class="hljs-comment"># --name 指定容器名称</span><span class="hljs-comment"># -v 挂载替换容器内指定文件</span></code></pre></div><p>将镜像打成 tar 包</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker save user-manage:latest &gt; ~/Downloads/usermanage.tar</code></pre></div><p>或者打成 gz, 压缩包会小很多</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker save myimage:latest | gzip &gt; myimage_latest.tar.gz</code></pre></div><p>上传 tar 包到指定服务器</p><div class="hljs code-wrapper"><pre><code class="hljs sh">scp ~/Downloads/usermanage.tar root@172.16.60.99:/tmp/</code></pre></div><p>从服务器下载 tar 包到本地</p><div class="hljs code-wrapper"><pre><code class="hljs sh">scp -r caas-aio:~/tmp/origin-web-console.tar ~/Downloads/<span class="hljs-built_in">test</span>/</code></pre></div><p>从 tar 包加载镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker load &lt; /tmp/usermanage.tar<span class="hljs-comment"># 可以查看到</span>docker images</code></pre></div><p>给镜像重新打 tag</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker tag user-manage:latest docker.io/user-manage:latest</code></pre></div><p>进入容器内部</p><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 镜像 id</span>docker <span class="hljs-built_in">exec</span> -it 73bee1a2a355 /bin/bash<span class="hljs-comment"># 或者 /bin/sh</span></code></pre></div><p>查看镜像元数据，常用来查看 commit-id</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker inspect &lt;image-id&gt;</code></pre></div>]]></content>
+    <content type="html"><![CDATA[<p>构建镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker build -t user-manage:v1.0 .</code></pre></div><p>运行容器镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker run --rm -d -p 8089:80 --name k8s-installer-test -v ~/gitlab/k8s-installer-ui/dist:/usr/share/nginx/html -v ~/default.conf:/etc/nginx/conf.d/default.conf nginx<span class="hljs-comment"># --rm container 停止后删除 container</span><span class="hljs-comment"># -d 后台运行容器</span><span class="hljs-comment"># -p 80:80 前者本地端口，后者是 dockerfile 暴露端口</span><span class="hljs-comment"># --name 指定容器名称</span><span class="hljs-comment"># -v 挂载替换容器内指定文件</span></code></pre></div><p>将镜像打成 tar 包</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker save user-manage:latest &gt; ~/Downloads/usermanage.tar</code></pre></div><p>或者打成 gz, 压缩包会小很多</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker save myimage:latest | gzip &gt; myimage_latest.tar.gz</code></pre></div><p>上传 tar 包到指定服务器</p><div class="hljs code-wrapper"><pre><code class="hljs sh">scp ~/Downloads/usermanage.tar root@172.16.60.99:/tmp/</code></pre></div><p>从服务器下载 tar 包到本地</p><div class="hljs code-wrapper"><pre><code class="hljs sh">scp -r caas-aio:~/tmp/origin-web-console.tar ~/Downloads/<span class="hljs-built_in">test</span>/</code></pre></div><p>从 tar 包加载镜像</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker load &lt; /tmp/usermanage.tar<span class="hljs-comment"># 可以查看到</span>docker images</code></pre></div><p>给镜像重新打 tag</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker tag user-manage:latest docker.io/user-manage:latest</code></pre></div><p>进入容器内部</p><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 镜像 id</span>docker <span class="hljs-built_in">exec</span> -it 73bee1a2a355 /bin/bash<span class="hljs-comment"># 或者 /bin/sh</span></code></pre></div><p>查看镜像元数据，常用来查看 commit-id</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker inspect &lt;image-id&gt;</code></pre></div><ul><li>no space left on device</li></ul><p>删除 <none> images</p><div class="hljs code-wrapper"><pre><code class="hljs sh">docker rmi $(docker images | grep <span class="hljs-string">&#x27;^&lt;none&gt;&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>)</code></pre></div>]]></content>
     
     
     
